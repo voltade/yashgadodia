@@ -28,7 +28,7 @@ export default function Topics({ data }) {
       <PageLayout>
         <Hero
           title={title}
-          description="All the topics I've covered. I write about front and backend software development, design, architecture, and personal topics."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie consequat tempor."
         />
         {Object.entries(groupTags).map(([key, value]) => {
           return (

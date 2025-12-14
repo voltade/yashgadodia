@@ -1,9 +1,9 @@
 {
-  "name": "taniarascia.com",
+  "name": "yashgadodia.com",
   "private": true,
   "version": "7.1",
-  "description": "Tania Rascia's personal website.",
-  "author": "Tania Rascia",
+  "description": "Yash Gadodia's personal website.",
+  "author": "yash gadodia",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taniarascia/taniarascia.com"
+    "url": "https://github.com/yash/yashgadodia.com"
   },
   "dependencies": {
     "gatsby": "^5.14.5",

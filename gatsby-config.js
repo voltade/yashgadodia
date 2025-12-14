@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: "Tania's Website",
-    author: { name: 'Tania' },
+    title: "Yash's Playground",
+    author: { name: 'yash gadodia' },
     pathPrefix: '/',
-    siteUrl: 'https://tania.dev',
+    siteUrl: 'https://yashgadodia.com',
     description:
-      'Software engineer and open-source creator. This is my digital garden.',
-    feedUrl: 'https://tania.dev/rss.xml',
-    logo: 'https://tania.dev/logo.png',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed suscipit lorem.',
+    feedUrl: 'https://yashgadodia.com/rss.xml',
+    logo: 'https://yashgadodia.com/logo.png',
   },
   plugins: [
     // ===================================================================================
@@ -18,10 +18,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Tania's Website",
-        short_name: 'tania.dev',
+        name: "Yash's Playground",
+        short_name: 'yashgadodia.com',
         description:
-          'Software engineer and open source creator. This is my digital garden.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         start_url: '/',
         background_color: 'white',
         // theme_color: '#959af8',
@@ -55,7 +55,7 @@ module.exports = {
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [
                     { 'content:encoded': edge.node.html },
-                    { author: 'hello@taniarascia.com' },
+                    { author: 'hello@yashgadodia.com' },
                   ],
                 })
               })
@@ -85,7 +85,7 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: 'tania.dev | RSS Feed',
+            title: 'yashgadodia.com | RSS Feed',
           },
         ],
       },

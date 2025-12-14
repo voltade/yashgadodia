@@ -29,7 +29,7 @@ export default function Illustration() {
       <PageLayout>
         <Hero
           title={title}
-          description="I don't draw much, but here's a few illustrations."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat ultricies diam."
         />
 
         <div className="cards">

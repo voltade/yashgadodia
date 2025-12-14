@@ -23,6 +23,16 @@ export const Posts = ({
     return collection
   }, [data])
   const years = useMemo(() => Object.keys(postsByYear).reverse(), [postsByYear])
+  if (!data.length) {
+    return (
+      <div className="posts empty-state">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Content is on
+          its way.
+        </p>
+      </div>
+    )
+  }
 
   if (showYears) {
     return years.map((year) => {

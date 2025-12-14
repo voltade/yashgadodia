@@ -5,14 +5,14 @@ import gatsby from '../assets/gatsby.png'
 import github from '../assets/nav-github.png'
 
 const links = [
-  { url: 'https://taniarascia.substack.com', label: 'Email signup' },
-  { url: 'https://www.taniarascia.com/rss.xml', label: 'RSS feed' },
-  { url: 'https://bsky.app/profile/tania.dev', label: 'Bluesky' },
-  { url: 'https://ko-fi.com/taniarascia', label: 'Buy me a coffee' },
+  { url: 'mailto:hello@yashgadodia.com', label: 'Email' },
+  { url: '/rss.xml', label: 'RSS feed' },
+  { url: 'https://github.com/yashgadodia', label: 'GitHub' },
+  { url: 'https://www.linkedin.com/in/yashgadodia', label: 'LinkedIn' },
 ]
 const madeWithLinks = [
   { url: 'https://www.gatsbyjs.org', label: 'Gatsby', icon: gatsby },
-  { url: 'https://github.com/taniarascia', label: 'GitHub', icon: github },
+  { url: 'https://github.com/yashgadodia', label: 'GitHub', icon: github },
   { url: 'https://www.netlify.com', label: 'Netlify', icon: netlify },
 ]
 
@@ -48,7 +48,7 @@ export const Footer = () => {
             </a>
           ))}
         </nav>
-        <div className="footer-made-by">Made with ❤️ by Tania Rascia</div>
+        <div className="footer-made-by">Made with ❤️ by yash gadodia</div>
       </section>
     </footer>
   )

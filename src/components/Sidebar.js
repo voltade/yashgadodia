@@ -32,13 +32,13 @@ export const Sidebar = ({
               <img
                 src={floppyLogo}
                 className="navbar-logo"
-                alt="tania.dev"
+                alt="yashgadodia.com"
                 title="💾"
                 height="16"
                 width="16"
               />
             </span>
-            <span className="site-name">tania.dev</span>
+            <span className="site-name">yashgadodia.com</span>
           </Link>
           <div className="flex-align-center">
             <ColorDropdown
@@ -66,8 +66,8 @@ export const Sidebar = ({
         <h2>About Me</h2>
         <div className="sidebar-content">
           <p>
-            I'm <Link to="/me">Tania</Link>, software engineer and open-source
-            creator. This is my digital garden. 🌱
+            I'm <Link to="/me">yash</Link>, and this corner of the internet is a
+            playground for experiments, notes, and works in progress. 🌱
           </p>
         </div>
       </section>
@@ -86,21 +86,21 @@ export const Sidebar = ({
       <section className="sidebar-section">
         <h2>Stay Connected</h2>
         <p className="sidebar-links">
+          <a href="mailto:hello@yashgadodia.com">Email</a>
           <a
-            href="https://taniarascia.substack.com"
+            href="https://github.com/yashgadodia"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Email signup
+            GitHub
           </a>
           <a
-            href="https://go.bsky.app/SmEWb8G"
+            href="https://www.linkedin.com/in/yashgadodia"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Bluesky
+            LinkedIn
           </a>
-          <a href="/rss.xml">RSS feed</a>
         </p>
       </section>
     </aside>

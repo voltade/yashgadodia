@@ -13,8 +13,8 @@ import { PageLayout } from '../components/PageLayout'
 import { projectsList } from '../data/projectsList'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
-import newMoon from '../../content/images/new-moon.svg'
-import floppy from '../../content/images/floppylogo.png'
+import newMoon from '../assets/nav-blog.png'
+import floppy from '../assets/nav-floppy.png'
 
 export default function Index({ data }) {
   const latestNotes = data.latestNotes.edges
@@ -40,30 +40,31 @@ export default function Index({ data }) {
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>Hey, I'm Tania!</h1>
+              <h1>Hey, I'm yash!</h1>
               <p className="hero-description">
-                I'm a software engineer, open-source creator, and former
-                professional chef. I've been making websites since 1998 and{' '}
-                <Link to="/blog">writing on this blog</Link> for over ten years!
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
+                <Link to="/blog">Curabitur vitae</Link> mi sed libero
+                tristique dapibus ut eu nisl.
               </p>
               <p className="hero-description">
-                Everything on this site is written by me, not AI.
+                Integer dignissim, sapien nec posuere faucibus, libero lorem
+                egestas ante, nec volutpat justo lacus id urna.
               </p>
               <p
                 className="flex-wrap flex-align-center gap"
                 style={{ marginBottom: 0 }}
               >
                 <Link className="button" to="/me">
-                  <img src={floppy} alt="Floppy Logo" /> About Me
+                  <img src={floppy} alt="Monogram" /> About Me
                 </Link>
                 <a
-                  href="https://taniarascia.substack.com"
+                  href="#"
                   className="button"
                   type="button"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <img src={newMoon} alt="New Moon Logo" /> Email Newsletter
+                  <img src={newMoon} alt="Newsletter" /> Email Newsletter
                 </a>
               </p>
             </div>
@@ -76,7 +77,7 @@ export default function Index({ data }) {
         <section className="section-index">
           <Heading
             title="Blog"
-            description="Guides, references, and tutorials."
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           />
           <Posts data={articles} />
         </section>
@@ -84,7 +85,7 @@ export default function Index({ data }) {
         <section className="section-index">
           <Heading
             title="Notes"
-            description="Life, music, projects, and everything else."
+            description="Quisque euismod massa ut lorem fermentum pretium."
           />
           <Posts data={notes} />
         </section>
@@ -94,7 +95,7 @@ export default function Index({ data }) {
             title="Deep Dives"
             slug="/topics"
             buttonText="All Topics"
-            description="Long-form tutorials on a variety of development topics."
+            description="Pellentesque habitant morbi tristique senectus et netus."
           />
           <div className="cards">
             {simplifiedHighlights.map((post) => {
@@ -119,7 +120,7 @@ export default function Index({ data }) {
             title="Projects"
             slug="/projects"
             buttonText="All Projects"
-            description="Open-source projects I've worked on over the years."
+            description="Side experiments, utilities, and art installations."
           />
 
           <div className="cards">
@@ -130,9 +131,10 @@ export default function Index({ data }) {
                   <div className="card" key={`hightlight-${project.slug}`}>
                     <time>{project.date}</time>
                     <a
-                      href={`https://github.com/taniarascia/${project.slug}`}
+                      href={project.url || '#'}
                       target="_blank"
                       rel="noreferrer"
+                      className="card-header"
                     >
                       {project.name}
                     </a>
@@ -143,22 +145,26 @@ export default function Index({ data }) {
                           Article
                         </Link>
                       )}
-                      <a
-                        className="button small"
-                        href={project.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Demo
-                      </a>
-                      <a
-                        className="button small"
-                        href={`https://github.com/taniarascia/${project.slug}`}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Source
-                      </a>
+                      {project.url && (
+                        <a
+                          className="button small"
+                          href={project.url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Demo
+                        </a>
+                      )}
+                      {project.url && (
+                        <a
+                          className="button small"
+                          href={project.url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Details
+                        </a>
+                      )}
                     </div>
                   </div>
                 )

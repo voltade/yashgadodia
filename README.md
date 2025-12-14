@@ -1,10 +1,18 @@
-# taniarascia.com
+# yashgadodia.com
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/0a51d0e9-f611-4dd8-887f-fc1889e68540/deploy-status)](https://app.netlify.com/sites/tania/deploys)
+Personal site and sandbox built with Gatsby, React, and Node.js. The layout is now stripped down to lorem ipsum content so it can be quickly customized without worrying about legacy posts.
 
-Tania's personal website running on Gatsby, React, and Node.js.
+## Getting Started
 
-**Note**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being cloned and deployed. As such, I do not provide support or guidance for doing that. I recommend using the [Gatsby Advanced Starter](https://github.com/vagr9k/gatsby-advanced-starter/) to set up a blog or an existing theme created for that purpose.
+1. Install dependencies: `npm install`
+2. Start the dev server: `npm run develop`
+3. Build for production: `npm run build`
+
+The development server runs at http://localhost:8000 and the GraphQL explorer lives at http://localhost:8000/___graphql.
+
+## Deployment
+
+Any static host works (Netlify, Vercel, Cloudflare Pages, S3, etc.). Point the host to run `npm run build` and serve the `public/` directory.
 
 ## License
 
