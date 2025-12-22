@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import { ColorDropdown } from './ColorDropdown'
 import floppyLogo from '../assets/nav-floppy.png'
 import floppy from '../assets/floppylogo.png'
 import blog from '../assets/nav-blog.png'
@@ -13,8 +12,6 @@ import { Sun } from '../assets/Sun'
 export const Sidebar = ({
   theme,
   handleUpdateTheme,
-  currentColor,
-  setCurrentColor,
 }) => {
   const links = [
     { url: '/blog', label: 'Blog', image: projects },
@@ -41,10 +38,6 @@ export const Sidebar = ({
             <span className="site-name">yashgadodia.com</span>
           </Link>
           <div className="flex-align-center">
-            <ColorDropdown
-              currentColor={currentColor}
-              setCurrentColor={setCurrentColor}
-            />
             <div className="tooltip-container">
               <button
                 className="navbar-button"

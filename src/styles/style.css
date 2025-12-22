@@ -24,13 +24,13 @@
 
   --yellow: light-dark(#ffce64, #ffd479);
   --theme-yellow: light-dark(#a07926, #ffd479);
-  --theme-green: light-dark(#2d922d, #78d578);
+  --theme-green: light-dark(#119211, #3e713e);
   --theme-pink: light-dark(#d33682, #fb81ba);
   --theme-lavender: light-dark(#8762ec, #a080f9);
   --theme-blue: light-dark(#2f71b4, #72a8ff);
 
   /* Colors */
-  --color-primary: var(--theme-pink);
+  --color-primary: var(--theme-green);
   --color-highlighted: var(--yellow);
   --color-background: light-dark(var(--beige-0), var(--gray-9));
   --color-background-alternate: light-dark(var(--beige-1), var(--gray-11));

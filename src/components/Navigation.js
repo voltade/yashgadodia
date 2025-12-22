@@ -13,7 +13,6 @@ import { Sun } from '../assets/Sun'
 import { Menu } from '../assets/Menu'
 import { Close } from '../assets/Close'
 import { Searchbar } from './Searchbar'
-import { ColorDropdown } from './ColorDropdown'
 
 const links = [
   { url: '/blog', label: 'Blog', image: projects },
@@ -27,7 +26,6 @@ const socialLinks = [{ url: 'https://github.com/yashgadodia' }]
 export const Navigation = ({
   handleUpdateTheme,
   theme,
-  currentColor,
   setCurrentColor,
 }) => {
   const location = useLocation()
@@ -108,10 +106,6 @@ export const Navigation = ({
             >
               {theme === 'dark' ? <Sun /> : <Moon />}
             </button>
-            <ColorDropdown
-              currentColor={currentColor}
-              setCurrentColor={setCurrentColor}
-            />
             {socialLinks.map((link) => (
               <SocialIcon
                 target="_blank"

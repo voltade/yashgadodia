@@ -11,7 +11,6 @@ import '../styles/new-moon.css'
 
 export const Layout = ({ children }) => {
   const [theme, setTheme] = useState('dark')
-  const [currentColor, setCurrentColor] = useState('var(--theme-lavender)')
 
   const handleUpdateTheme = (newTheme) => {
     const html = document.documentElement
@@ -64,14 +63,10 @@ export const Layout = ({ children }) => {
         <Navigation
           handleUpdateTheme={handleUpdateTheme}
           theme={theme}
-          currentColor={currentColor}
-          setCurrentColor={setCurrentColor}
         />
         <Sidebar
           handleUpdateTheme={handleUpdateTheme}
           theme={theme}
-          currentColor={currentColor}
-          setCurrentColor={setCurrentColor}
         />
         <div className="main-wrapper">
           <div className="main-container">{children}</div>
