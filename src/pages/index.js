@@ -40,44 +40,64 @@ export default function Index({ data }) {
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>Hey, I'm yash!</h1>
+              <h1>AI product manager who ships end to end</h1>
               <p className="hero-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{' '}
-                <Link to="/blog">Curabitur vitae</Link> mi sed libero
-                tristique dapibus ut eu nisl.
+                I build AI-first products from user discovery to production, with enough engineering depth to close the loop on data, quality, and reliability. Based in Singapore.
               </p>
-              <p className="hero-description">
-                Integer dignissim, sapien nec posuere faucibus, libero lorem
-                egestas ante, nec volutpat justo lacus id urna.
-              </p>
+              <ul className="hero-proof-points">
+                <li>Founding PM at Voltade building Envoy (chat-based CRM) and customisable "Digital Brain" ERP systems.</li>
+                <li>Ex-backend engineer, comfortable with TypeScript, Postgres, and cloud-native stacks.</li>
+                <li>Founder experience: 0 to 1, sales, ops, and iteration cadence.</li>
+              </ul>
               <p
                 className="flex-wrap flex-align-center gap"
                 style={{ marginBottom: 0 }}
               >
+                <Link className="button" to="/projects">
+                  <img src={floppy} alt="Projects" /> View Projects
+                </Link>
                 <Link className="button" to="/me">
-                  <img src={floppy} alt="Monogram" /> About Me
+                  <img src={newMoon} alt="About" /> Read About Me
                 </Link>
                 <a
-                  href="#"
+                  href="mailto:pirsquare.yash@gmail.com"
                   className="button"
                   type="button"
-                  rel="noreferrer"
-                  target="_blank"
                 >
-                  <img src={newMoon} alt="Newsletter" /> Email Newsletter
+                  Email Me
                 </a>
               </p>
-            </div>
-            <div className="hero-image-container">
-              <img src="/ram.png" className="hero-image" alt="RAM Ram" />
             </div>
           </div>
         </Hero>
 
         <section className="section-index">
           <Heading
+            title="What I Do"
+            description="Three pillars that define how I work."
+          />
+          <div className="pillars">
+            <div className="pillar">
+              <h3>AI product strategy that cashes out in shipped workflows</h3>
+              <p>North Star metrics, evaluation plans, and clear product bets that reduce ambiguity for engineering and stakeholders.</p>
+            </div>
+            <div className="pillar">
+              <h3>Quality and reliability as product features</h3>
+              <p>Instrumentation, failure modes, user-facing guardrails, and operational playbooks so the product holds up in real usage.</p>
+            </div>
+            <div className="pillar">
+              <h3>Systems thinking for messy domains</h3>
+              <p>I map workflows, constraints, and incentives, then build software that makes the work faster, safer, and easier to audit.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-index">
+          <Heading
             title="Blog"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            slug="/blog"
+            buttonText="All Posts"
+            description="Writing on AI products, systems design, and lessons from building."
           />
           <Posts data={articles} />
         </section>
@@ -85,7 +105,9 @@ export default function Index({ data }) {
         <section className="section-index">
           <Heading
             title="Notes"
-            description="Quisque euismod massa ut lorem fermentum pretium."
+            slug="/notes"
+            buttonText="All Notes"
+            description="Shorter observations and work-in-progress thinking."
           />
           <Posts data={notes} />
         </section>
@@ -95,7 +117,7 @@ export default function Index({ data }) {
             title="Deep Dives"
             slug="/topics"
             buttonText="All Topics"
-            description="Pellentesque habitant morbi tristique senectus et netus."
+            description="Long-form explorations of specific domains and technical concepts."
           />
           <div className="cards">
             {simplifiedHighlights.map((post) => {
@@ -120,7 +142,7 @@ export default function Index({ data }) {
             title="Projects"
             slug="/projects"
             buttonText="All Projects"
-            description="Side experiments, utilities, and art installations."
+            description="Products and tools I've built or contributed to."
           />
 
           <div className="cards">

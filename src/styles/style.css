@@ -1089,7 +1089,50 @@ a.navbar-icon {
 .hero-description {
   margin: 0 0 1.25rem 0;
   font-size: 1.1rem;
-  max-width: 600px;
+  max-width: 700px;
+}
+
+.hero-proof-points {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.25rem;
+  max-width: 700px;
+}
+
+.hero-proof-points li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.pillar {
+  padding: 1.5rem;
+  background: var(--color-card-background);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.pillar h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  color: var(--color-heading);
+}
+
+.pillar p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+@media screen and (min-width: 800px) {
+  .pillars {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .hero-image {
