@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'gatsby'
 
 import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
@@ -21,32 +22,31 @@ export default function Projects() {
       <PageLayout>
         <Hero title={title} description={description} />
 
-        <div className="project-cards">
+        <div className="cards">
           {projectsList.map((project) => {
             return (
-              <div className="project-card" key={project.slug}>
-                <div className="project-card-header">
-                  <h3>
-                    {project.url ? (
-                      <a href={project.url} target="_blank" rel="noreferrer">
-                        {project.name}
-                      </a>
-                    ) : (
-                      project.name
-                    )}
-                  </h3>
-                  <time>{project.date}</time>
-                </div>
-                <p className="project-card-tagline">{project.tagline}</p>
-                {project.description && (
-                  <div className="project-card-description">
-                    {project.description.split('\n\n').map((paragraph, i) => (
-                      <p key={i}>{paragraph}</p>
-                    ))}
-                  </div>
+              <div className="card" key={project.slug}>
+                <time>{project.date}</time>
+                {project.url ? (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="card-header"
+                  >
+                    {project.name}
+                  </a>
+                ) : (
+                  <span className="card-header">{project.name}</span>
                 )}
-                {project.url && (
-                  <div className="project-card-links">
+                <p>{project.tagline}</p>
+                <div className="card-links">
+                  {project.writeup && (
+                    <Link className="button small" to={project.writeup}>
+                      Article
+                    </Link>
+                  )}
+                  {project.url && (
                     <a
                       className="button small"
                       href={project.url}
@@ -55,8 +55,8 @@ export default function Projects() {
                     >
                       Visit
                     </a>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             )
           })}
