@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "Yash's Playground",
-    author: { name: 'yash gadodia' },
+    title: "Yash Gadodia | AI Product Manager",
+    author: { name: 'Yash Gadodia' },
     pathPrefix: '/',
     siteUrl: 'https://yashgadodia.com',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed suscipit lorem.',
+      'AI product manager building products that work in production. Founding PM at Voltade, ex-backend engineer. Based in Singapore.',
     feedUrl: 'https://yashgadodia.com/rss.xml',
     logo: 'https://yashgadodia.com/logo.png',
   },
@@ -16,12 +16,64 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify',
     {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+            allMarkdownRemark(
+              filter: { frontmatter: { template: { eq: "post" } } }
+            ) {
+              nodes {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  date
+                }
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: () => 'https://yashgadodia.com',
+        resolvePages: ({ allSitePage: { nodes: allPages }, allMarkdownRemark: { nodes: allPosts } }) => {
+          const postsByPath = allPosts.reduce((acc, post) => {
+            acc[post.fields.slug] = post;
+            return acc;
+          }, {});
+
+          return allPages.map((page) => {
+            const post = postsByPath[page.path];
+            return {
+              ...page,
+              lastmod: post?.frontmatter?.date,
+            };
+          });
+        },
+        serialize: ({ path, lastmod }) => ({
+          url: path,
+          lastmod: lastmod,
+          changefreq: path === '/' ? 'weekly' : 'monthly',
+          priority: path === '/' ? 1.0 : path.includes('/blog') || path.includes('/projects') ? 0.8 : 0.6,
+        }),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Yash's Playground",
-        short_name: 'yashgadodia.com',
+        name: 'Yash Gadodia | AI Product Manager',
+        short_name: 'Yash Gadodia',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          'AI product manager building products that work in production. Founding PM at Voltade, ex-backend engineer.',
         start_url: '/',
         background_color: 'white',
         // theme_color: '#959af8',

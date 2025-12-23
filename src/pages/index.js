@@ -40,14 +40,14 @@ export default function Index({ data }) {
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>AI product manager who ships end to end</h1>
+              <h1>I build AI products that work in production</h1>
               <p className="hero-description">
-                I build AI-first products from user discovery to production, with enough engineering depth to close the loop on data, quality, and reliability. Based in Singapore.
+                Most AI demos are impressive. Most AI products are fragile. I'm a product manager focused on closing that gap—figuring out what to build, how to evaluate it, and how to keep it reliable once real users show up.
               </p>
               <ul className="hero-proof-points">
-                <li>Founding PM at Voltade building Envoy (chat-based CRM) and customisable "Digital Brain" ERP systems.</li>
-                <li>Ex-backend engineer, comfortable with TypeScript, Postgres, and cloud-native stacks.</li>
-                <li>Founder experience: 0 to 1, sales, ops, and iteration cadence.</li>
+                <li>Founding PM at Voltade, building a chat-based CRM and customisable ERP systems for Southeast Asian businesses.</li>
+                <li>Came from backend engineering. I can read the codebase, talk to the database, and debug a stuck deployment.</li>
+                <li>Ran my own consumer business before this, so I've seen what happens when systems fail at 2am.</li>
               </ul>
               <p
                 className="flex-wrap flex-align-center gap"
@@ -57,7 +57,7 @@ export default function Index({ data }) {
                   <img src={floppy} alt="Projects" /> View Projects
                 </Link>
                 <Link className="button" to="/me">
-                  <img src={newMoon} alt="About" /> Read About Me
+                  <img src={newMoon} alt="About" /> About Me
                 </Link>
                 <a
                   href="mailto:pirsquare.yash@gmail.com"
@@ -68,26 +68,29 @@ export default function Index({ data }) {
                 </a>
               </p>
             </div>
+            <div className="hero-image-container">
+              <img src="/ram.png" className="hero-image" alt="RAM Ram" />
+            </div>
           </div>
         </Hero>
 
         <section className="section-index">
           <Heading
-            title="What I Do"
-            description="Three pillars that define how I work."
+            title="How I Work"
+            description="The stuff I actually spend my time on."
           />
           <div className="pillars">
             <div className="pillar">
-              <h3>AI product strategy that cashes out in shipped workflows</h3>
-              <p>North Star metrics, evaluation plans, and clear product bets that reduce ambiguity for engineering and stakeholders.</p>
+              <h3>Turning AI capabilities into useful workflows</h3>
+              <p>Not "what can this model do?" but "what should we ship first, and how will we know it's working?" I write specs that engineering can actually build against.</p>
             </div>
             <div className="pillar">
-              <h3>Quality and reliability as product features</h3>
-              <p>Instrumentation, failure modes, user-facing guardrails, and operational playbooks so the product holds up in real usage.</p>
+              <h3>Treating reliability as a feature</h3>
+              <p>Guardrails, fallbacks, monitoring. The boring work that determines whether users trust the product or abandon it after a week.</p>
             </div>
             <div className="pillar">
-              <h3>Systems thinking for messy domains</h3>
-              <p>I map workflows, constraints, and incentives, then build software that makes the work faster, safer, and easier to audit.</p>
+              <h3>Making sense of messy domains</h3>
+              <p>CRMs, ERPs, operations software. I spend time understanding how people actually work, then figure out where software can take load off them.</p>
             </div>
           </div>
         </section>
@@ -142,31 +145,34 @@ export default function Index({ data }) {
             title="Projects"
             slug="/projects"
             buttonText="All Projects"
-            description="Products and tools I've built or contributed to."
+            description="Products and companies I've built or contributed to."
           />
 
           <div className="cards">
             {projectsList
               .filter((project) => project.highlight)
+              .slice(0, 4)
               .map((project) => {
                 return (
-                  <div className="card" key={`hightlight-${project.slug}`}>
+                  <div className="card" key={`highlight-${project.slug}`}>
                     <time>{project.date}</time>
-                    <a
-                      href={project.url || '#'}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="card-header"
-                    >
-                      {project.name}
-                    </a>
+                    {project.url ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="card-header"
+                      >
+                        {project.name}
+                      </a>
+                    ) : (
+                      <span className="card-header">{project.name}</span>
+                    )}
                     <p>{project.tagline}</p>
                     <div className="card-links">
-                      {project.writeup && (
-                        <Link className="button small" to={project.writeup}>
-                          Article
-                        </Link>
-                      )}
+                      <Link className="button small" to="/projects">
+                        Read more
+                      </Link>
                       {project.url && (
                         <a
                           className="button small"
@@ -174,17 +180,7 @@ export default function Index({ data }) {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Demo
-                        </a>
-                      )}
-                      {project.url && (
-                        <a
-                          className="button small"
-                          href={project.url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Details
+                          Visit
                         </a>
                       )}
                     </div>
