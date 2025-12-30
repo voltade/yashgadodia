@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
 
 import { Layout } from '../components/Layout'
 import { PageLayout } from '../components/PageLayout'
@@ -19,73 +18,100 @@ export default function Me() {
       <PageLayout>
         <Hero
           title={title}
-          description="A quick overview of what I do, what I’ve built, and how I work."
+          description="I work on products where the problem isn’t clear and the stakes are real."
         />
         <div className="page-article">
           <p>
-            I’m Yash, based in Singapore. I build and ship products that people use to run
-            day-to-day operations.
+            I’m Yash, based in Singapore. I work as a product manager and builder, usually
+            close to implementation.
           </p>
           <p>
-            This site is a place to keep my <Link to="/blog">writing</Link>,{' '}
-            <Link to="/notes">notes</Link>, and a small set of{' '}
-            <Link to="/projects">projects</Link>. If you’re building software for teams who
-            are busy and pragmatic, you’ll probably find it familiar.
+            I’ve worked across logistics, internal tools, and AI-driven products, usually in
+            environments where systems are messy, ownership is unclear, and progress depends
+            on good judgment more than perfect plans.
+          </p>
+          <p>
+            I’ve spent the last few years working on systems that teams rely on day to day,
+            from internal tools to customer-facing platforms. Most of my work sits in the
+            space between product, engineering, and operations, where clarity matters more
+            than polish.
+          </p>
+          <p>
+            This site is a snapshot of how I think, what I’ve worked on, and the kinds of
+            problems I’m drawn to.
           </p>
 
           <h2>Work</h2>
           <p>
-            At Voltade, I work on operational products for SMEs. That includes Envoy (a
-            chat-first CRM) and a more ERP-like platform we use to deliver custom systems
-            quickly without them turning into one-off spaghetti.
+            <strong>Voltade</strong>
           </p>
           <p>
-            Before Voltade, I built internal tools and ops systems at Ninja Van. I’ve also
-            built and run The Bon Pet, which is where I learnt what reliability means when
-            you’re the one dealing with customers, fulfilment, and edge cases.
+            At Voltade, I work on operational products used by SMEs. This includes a
+            chat-first CRM and a modular platform used to build custom internal systems.
+          </p>
+          <p>
+            The work often involves unclear requirements, time pressure, and trade-offs
+            between speed and reliability. I focus on shaping problems early, reducing
+            ambiguity, and helping teams ship without creating long-term mess.
+          </p>
+          <p>
+            <strong>Ninja Van</strong>
+          </p>
+          <p>
+            Before that, I worked on internal tools and operational systems supporting
+            logistics at scale. It taught me how small product decisions compound when
+            thousands of people depend on them daily.
+          </p>
+          <p>
+            <strong>The Bon Pet</strong>
+          </p>
+          <p>
+            I also built and ran a small consumer business. Doing everything end-to-end made
+            the cost of poor decisions very real — from fulfilment issues to customer trust.
           </p>
 
           <h2>How I Work</h2>
+          <p>
+            I’m most effective when problems are still fuzzy and there’s no obvious “right”
+            answer.
+          </p>
           <ul>
             <li>
-              I aim for clarity over cleverness. Simple flows, explicit state, and defaults
-              that make the safe thing the easy thing.
+              I prefer clarity over cleverness. If something is hard to explain, it usually
+              isn’t ready.
             </li>
             <li>
-              I write to think. Short problem statements, the decision, the trade-offs, and
-              what we are not doing.
+              I write to think: decisions, assumptions, and trade-offs go down early.
             </li>
             <li>
-              I stay close to implementation (TypeScript, SQL/Postgres, deployments) so the
-              plan stays honest and feedback loops stay tight.
+              I stay close to implementation so constraints stay real, not theoretical.
             </li>
             <li>
-              I care about observability and supportability. If we cannot debug it quickly,
-              it is not done.
+              I care about operability. If something is painful to support, it isn’t
+              finished.
             </li>
+          </ul>
+
+          <h2>What I look for in teams</h2>
+          <p>I work best with people who:</p>
+          <ul>
+            <li>take ownership without waiting for perfect instructions</li>
+            <li>are comfortable saying “I don’t know yet”</li>
+            <li>care about outcomes more than optics</li>
+            <li>treat product work as a team sport</li>
           </ul>
 
           <h2>Now</h2>
           <p>
-            Right now I’m focused on building platform foundations at Voltade and shipping
-            client work end to end, from scoping to rollout. The goal is to keep delivery
-            fast without sacrificing reliability, security, or maintainability.
+            Right now, I’m focused on building platform foundations at Voltade and shipping
+            real work end to end — from discovery to rollout — while keeping systems stable
+            and understandable.
           </p>
 
           <h2>Contact</h2>
           <p>
-            If you want to chat, email me at{' '}
-            <a href="mailto:pirsquare.yash@gmail.com">pirsquare.yash@gmail.com</a>.
-          </p>
-          <p>
-            If email isn’t your thing, here’s{' '}
-            <a
-              href="https://www.linkedin.com/in/yashgadodia"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
+            If you want to talk, you can reach me at{' '}
+            <a href="mailto:pirsquare.yash@gmail.com">pirsquare.yash@gmail.com</a>
             .
           </p>
         </div>

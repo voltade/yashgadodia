@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, withPrefix } from 'gatsby'
 
 import Helmet from 'react-helmet'
 
@@ -14,11 +14,10 @@ import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 import newMoon from '../assets/nav-blog.png'
 import floppy from '../assets/nav-floppy.png'
+import emailIcon from '../assets/nav-email.svg'
 
 export default function Index({ data }) {
-  const latestNotes = data.latestNotes.edges
   const latestArticles = data.latestArticles.edges
-  const notes = useMemo(() => getSimplifiedPosts(latestNotes), [latestNotes])
 
   const articles = useMemo(
     () => getSimplifiedPosts(latestArticles),
@@ -75,12 +74,16 @@ export default function Index({ data }) {
                   className="button"
                   type="button"
                 >
-                  Email Me
+                  <img src={emailIcon} alt="Email" /> Email Me
                 </a>
               </p>
             </div>
             <div className="hero-image-container">
-              <img src="/ram.png" className="hero-image" alt="RAM Ram" />
+              <img
+                src="/pixel-me.svg"
+                className="hero-image"
+                alt="Portrait illustration"
+              />
             </div>
           </div>
         </Hero>
@@ -112,7 +115,7 @@ export default function Index({ data }) {
                         className="project-preview-link"
                       >
                         <img
-                          src={project.previewImage}
+                          src={withPrefix(project.previewImage)}
                           alt={`${project.name} preview`}
                           loading="lazy"
                           className="project-preview"
@@ -141,7 +144,7 @@ export default function Index({ data }) {
                       {project.pitchDeckUrl && (
                         <a
                           className="button small"
-                          href={project.pitchDeckUrl}
+                          href={withPrefix(project.pitchDeckUrl)}
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -184,16 +187,6 @@ export default function Index({ data }) {
           />
           <Posts data={articles} />
         </section>
-
-        <section className="section-index">
-          <Heading
-            title="Notes"
-            slug="/notes"
-            buttonText="All Notes"
-            description="Shorter observations and work-in-progress thinking."
-          />
-          <Posts data={notes} />
-        </section>
       </PageLayout>
     </>
   )
@@ -203,32 +196,6 @@ Index.Layout = Layout
 
 export const pageQuery = graphql`
   query IndexQuery {
-    latestNotes: allMarkdownRemark(
-      limit: 5
-      sort: { frontmatter: { date: DESC } }
-      filter: {
-        frontmatter: {
-          template: { eq: "post" }
-          categories: { eq: "Personal" }
-        }
-      }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
-            categories
-            external_url
-          }
-        }
-      }
-    }
     latestArticles: allMarkdownRemark(
       limit: 5
       sort: { frontmatter: { date: DESC } }

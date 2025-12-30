@@ -15,11 +15,10 @@ import { Searchbar } from './Searchbar'
 import { ColorDropdown } from './ColorDropdown'
 
 const links = [
-  { url: '/writing', label: 'Writing', image: blog },
   { url: '/blog', label: 'Blog', image: projects },
-  { url: '/notes', label: 'Notes', image: blog },
   { url: '/projects', label: 'Projects', image: projects },
   { url: '/me', label: 'About Me', image: floppy },
+  { url: '/notes', label: 'Personal Writing', image: blog },
 ]
 
 const socialLinks = [

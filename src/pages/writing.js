@@ -17,7 +17,7 @@ export default function Writing({ data }) {
   const description = (
     <div>
       Longer posts in <Link to="/blog">Blog</Link> and shorter{' '}
-      <Link to="/notes">Notes</Link>.
+      <Link to="/notes">Personal Writing</Link>.
     </div>
   )
 
@@ -52,12 +52,12 @@ export default function Writing({ data }) {
 
         <section className="section-index">
           <Heading
-            title="Notes"
+            title="Personal Writing"
             description="Shorter observations and work-in-progress thinking."
           />
           <Posts data={notes} />
           <p>
-            <Link to="/notes">View all notes →</Link>
+            <Link to="/notes">View all personal writing →</Link>
           </p>
         </section>
       </PageLayout>
@@ -121,4 +121,3 @@ export const pageQuery = graphql`
     }
   }
 `
-

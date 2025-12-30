@@ -156,5 +156,20 @@ const createNode = ({ node, actions, getNode }) => {
   }
 }
 
+const createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+
+  createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: MarkdownRemarkFrontmatter
+    }
+
+    type MarkdownRemarkFrontmatter {
+      thumbnail: File @fileByRelativePath
+    }
+  `)
+}
+
 exports.createPages = createPages
 exports.onCreateNode = createNode
+exports.createSchemaCustomization = createSchemaCustomization

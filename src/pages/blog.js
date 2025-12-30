@@ -17,8 +17,8 @@ export default function Blog({ data }) {
 
   const description = (
     <div>
-      {'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '}
-      <Link to="/topics">Vestibulum eget augue.</Link>
+      Writing on product strategy, systems thinking, and building software that
+      ships. Browse by <Link to="/topics">topic</Link>.
     </div>
   )
 

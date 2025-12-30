@@ -186,6 +186,13 @@ body {
   margin: 0;
 }
 
+/* Prevent accidental horizontal scroll on mobile */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Headings */
 
 h1,
@@ -322,6 +329,17 @@ mark {
 table {
   border-collapse: collapse;
   border: 1px solid var(--color-border);
+}
+
+/* Mobile-friendly tables */
+@media screen and (max-width: 799px) {
+  table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 td,
@@ -824,7 +842,7 @@ a.navbar-icon {
   min-height: 100vh;
 }
 
-.main-contanier {
+.main-container {
   display: block;
   max-width: var(--main-layout-width);
 }
@@ -1175,6 +1193,16 @@ a.navbar-icon {
   gap: 0.5rem;
 }
 
+@media screen and (max-width: 799px) {
+  .hero-wrapper {
+    gap: 1rem;
+  }
+
+  .hero-image-container {
+    align-self: center;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .hero-image {
     width: 150px;
@@ -1194,11 +1222,17 @@ a.navbar-icon {
   .hero-image-container {
     position: relative;
     margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
 
     &::before {
       position: absolute;
-      top: 1rem;
-      left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       content: '';
       background: var(--color-primary);
       border-radius: 50%;
@@ -1250,6 +1284,16 @@ a.post {
     gap: 0.5rem;
     font-weight: 600;
     margin: 0;
+    flex-wrap: wrap;
+    min-width: 0;
+
+    > div {
+      min-width: 0;
+    }
+
+    .button {
+      flex: 0 0 auto;
+    }
   }
 
   .post-description {
@@ -1470,6 +1514,7 @@ a time.new-post {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   a {
@@ -1633,6 +1678,17 @@ img {
   max-width: 100%;
 }
 
+/* Mobile-friendly embeds/code */
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+iframe,
+video {
+  max-width: 100%;
+}
+
 img.image-float {
   margin: 1.25rem 0;
   height: auto;
@@ -1706,12 +1762,20 @@ a.footer-link {
 .footer-menu {
   display: flex;
   gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .footer-menu-buttons {
   display: flex;
   flex-direction: row;
   gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 420px) {
+  a.navbar-icon {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 800px) {

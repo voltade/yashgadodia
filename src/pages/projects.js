@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
+import { Link, withPrefix } from 'gatsby'
 
 import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
@@ -12,7 +12,7 @@ import { projectsList } from '../data/projectsList'
 export default function Projects() {
   const title = 'Projects'
   const description =
-    'A running list of things I’ve built or worked on.'
+    'A running list of things I’ve built or worked on. I keep this focused on work where I had real ownership and learned something meaningful.'
 
   const sortedProjects = React.useMemo(() => {
     const getYear = (project) => {
@@ -32,11 +32,6 @@ export default function Projects() {
       <PageLayout>
         <Hero title={title} description={description} />
         <div className="page-article">
-          <p>
-            I’m keeping this intentionally small and specific. If you want a quick
-            overview, start with the highlighted projects on the homepage.
-          </p>
-
           <ul className="projects-list">
             {sortedProjects.map((project) => {
               return (
@@ -68,7 +63,7 @@ export default function Projects() {
                       )}
                       {project.pitchDeckUrl && (
                         <a
-                          href={project.pitchDeckUrl}
+                          href={withPrefix(project.pitchDeckUrl)}
                           target="_blank"
                           rel="noreferrer"
                         >

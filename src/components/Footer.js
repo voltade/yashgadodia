@@ -45,9 +45,9 @@ export const Footer = () => {
         </nav>
         <div className="footer-made-by">Made by Yash Gadodia</div>
         <div className="footer-credit">
-          Inspired by{' '}
+          Credits: {' '}
           <a
-            href="https://www.taniarascia.com"
+            href="https://github.com/taniarascia/taniarascia.com"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-link"

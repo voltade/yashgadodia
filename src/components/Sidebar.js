@@ -16,11 +16,10 @@ export const Sidebar = ({
   setCurrentColor,
 }) => {
   const links = [
-    { url: '/writing', label: 'Writing', image: blog },
     { url: '/blog', label: 'Blog', image: blog },
-    { url: '/notes', label: 'Notes', image: projects },
     { url: '/projects', label: 'Projects', image: projects },
     { url: '/me', label: 'About Me', image: floppy },
+    { url: '/notes', label: 'Personal Writing', image: blog },
   ]
 
   return (

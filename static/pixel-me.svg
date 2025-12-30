@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Portrait illustration">
+  <title>Portrait illustration</title>
+  <rect width="512" height="512" fill="none" />
+
+  <!-- Transparent background on purpose: the hero circle is drawn via CSS (::before). -->
+  <g stroke="#141414" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Shirt -->
+    <path
+      d="M168 418c10-70 44-120 88-120h0c44 0 78 50 88 120"
+      fill="#F4F1EA"
+    />
+    <path d="M178 372c-14 8-26 20-38 46" fill="none" opacity="0.18" />
+    <path d="M334 372c14 8 26 20 38 46" fill="none" opacity="0.18" />
+
+    <!-- Backpack straps -->
+    <path d="M208 300c-22 18-40 50-44 112" fill="none" />
+    <path d="M304 300c22 18 40 50 44 112" fill="none" />
+    <path d="M188 408h44" fill="none" />
+    <path d="M280 408h44" fill="none" />
+
+    <!-- Strap fill under strokes -->
+    <g stroke="none" fill="#6B4B3A">
+      <path d="M198 306c-18 18-30 50-34 106h22c3-44 13-72 28-88z" />
+      <path d="M314 306c18 18 30 50 34 106h-22c-3-44-13-72-28-88z" />
+      <rect x="190" y="404" width="46" height="18" rx="7" />
+      <rect x="276" y="404" width="46" height="18" rx="7" />
+    </g>
+
+    <!-- Neck -->
+    <path d="M232 274c10 18 18 24 24 24s14-6 24-24" fill="#D9A077" />
+
+    <!-- Head -->
+    <path
+      d="M160 212c0-62 46-108 96-108s96 46 96 108c0 68-56 116-96 116s-96-48-96-116z"
+      fill="#D9A077"
+    />
+
+    <!-- Ears -->
+    <path d="M164 222c-18-10-28-2-28 18s12 32 30 30" fill="#D9A077" />
+    <path d="M348 222c18-10 28-2 28 18s-12 32-30 30" fill="#D9A077" />
+
+    <!-- Hair -->
+    <path
+      d="M168 202c6-62 52-106 88-106 44 0 92 32 96 106-18-18-48-28-72-32-22-4-54 0-72 8-18 8-30 14-40 24z"
+      fill="#2F2A25"
+    />
+    <path
+      d="M196 188c18-16 38-24 60-24 28 0 56 12 74 34-22-12-44-14-66-6-18 6-34 10-52-4-8-6-12-10-16-0z"
+      fill="#2F2A25"
+      stroke="none"
+      opacity="0.95"
+    />
+    <path d="M186 176c20-18 40-30 70-30" fill="none" opacity="0.18" />
+
+    <!-- Brows -->
+    <path d="M206 228c16-10 34-12 50-6" fill="none" />
+    <path d="M306 228c-16-10-34-12-50-6" fill="none" />
+
+    <!-- Eyes -->
+    <g stroke="none">
+      <ellipse cx="228" cy="248" rx="16" ry="14" fill="#FFFFFF" />
+      <ellipse cx="284" cy="248" rx="16" ry="14" fill="#FFFFFF" />
+      <circle cx="232" cy="250" r="7" fill="#141414" />
+      <circle cx="288" cy="250" r="7" fill="#141414" />
+      <circle cx="235" cy="247" r="2.5" fill="#FFFFFF" opacity="0.9" />
+      <circle cx="291" cy="247" r="2.5" fill="#FFFFFF" opacity="0.9" />
+    </g>
+
+    <!-- Nose -->
+    <path d="M252 258c-6 8-6 16 0 22" fill="none" />
+    <path d="M244 278c6 2 18 2 24 0" fill="none" opacity="0.25" />
+
+    <!-- Smile -->
+    <path
+      d="M228 292c14 18 42 18 56 0"
+      fill="#FFFFFF"
+      stroke="none"
+      opacity="0.9"
+    />
+    <path d="M218 292c14 22 62 22 76 0" fill="none" />
+    <path d="M236 304c12 8 28 8 40 0" fill="none" opacity="0.25" />
+
+    <!-- Cheeks -->
+    <g stroke="none" opacity="0.18">
+      <ellipse cx="198" cy="284" rx="18" ry="10" fill="#C96F5B" />
+      <ellipse cx="314" cy="284" rx="18" ry="10" fill="#C96F5B" />
+    </g>
+  </g>
+</svg>

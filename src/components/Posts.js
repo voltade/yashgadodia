@@ -27,8 +27,7 @@ export const Posts = ({
     return (
       <div className="posts empty-state">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Content is on
-          its way.
+          No posts here yet. New writing is on the way.
         </p>
       </div>
     )

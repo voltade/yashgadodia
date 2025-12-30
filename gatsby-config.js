@@ -222,10 +222,14 @@ module.exports = {
             allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" } } }) {
               nodes {
                 id
+                fields {
+                  slug
+                }
                 frontmatter {
                   title
                   tags
                   slug
+                  categories
                   date(formatString: "MMMM DD, YYYY")
                 }
                 rawMarkdownBody
@@ -235,11 +239,11 @@ module.exports = {
         `,
         ref: 'id',
         index: ['title', 'tags'],
-        store: ['id', 'slug', 'title', 'tags', 'date'],
+        store: ['id', 'slug', 'title', 'tags', 'categories', 'date'],
         normalizer: ({ data }) =>
           data.allMarkdownRemark.nodes.map((node) => ({
             id: node.id,
-            slug: `/${node.frontmatter.slug}`,
+            slug: node.fields?.slug || (node.frontmatter.slug ? `/${node.frontmatter.slug}/` : '/'),
             title: node.frontmatter.title,
             body: node.rawMarkdownBody,
             tags: node.frontmatter.tags,
