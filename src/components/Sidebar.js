@@ -19,7 +19,7 @@ export const Sidebar = ({
     { url: '/blog', label: 'Blog', image: blog },
     { url: '/projects', label: 'Projects', image: projects },
     { url: '/me', label: 'About Me', image: floppy },
-    { url: '/notes', label: 'Personal Writing', image: blog },
+    { url: '/notes', label: 'Writing', image: blog },
   ]
 
   return (

@@ -18,7 +18,7 @@ const links = [
   { url: '/blog', label: 'Blog', image: projects },
   { url: '/projects', label: 'Projects', image: projects },
   { url: '/me', label: 'About Me', image: floppy },
-  { url: '/notes', label: 'Personal Writing', image: blog },
+  { url: '/notes', label: 'Writing', image: blog },
 ]
 
 const socialLinks = [

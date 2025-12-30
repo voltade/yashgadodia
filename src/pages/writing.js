@@ -17,7 +17,7 @@ export default function Writing({ data }) {
   const description = (
     <div>
       Longer posts in <Link to="/blog">Blog</Link> and shorter{' '}
-      <Link to="/notes">Personal Writing</Link>.
+      <Link to="/notes">Writing</Link>.
     </div>
   )
 
@@ -52,12 +52,12 @@ export default function Writing({ data }) {
 
         <section className="section-index">
           <Heading
-            title="Personal Writing"
+            title="Writing"
             description="Shorter observations and work-in-progress thinking."
           />
           <Posts data={notes} />
           <p>
-            <Link to="/notes">View all personal writing →</Link>
+            <Link to="/notes">View all writing →</Link>
           </p>
         </section>
       </PageLayout>

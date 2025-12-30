@@ -1,5 +1,5 @@
 ---
-date: 2022-08-01
+date: 2022-04-01
 title: 'My Ninja Van Internship Experience'
 template: post
 slug: my-ninja-van-internship-experience
