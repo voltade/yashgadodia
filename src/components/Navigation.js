@@ -15,6 +15,7 @@ import { Searchbar } from './Searchbar'
 import { ColorDropdown } from './ColorDropdown'
 
 const links = [
+  { url: '/writing', label: 'Writing', image: blog },
   { url: '/blog', label: 'Blog', image: projects },
   { url: '/notes', label: 'Notes', image: blog },
   { url: '/projects', label: 'Projects', image: projects },
@@ -101,20 +102,24 @@ export const Navigation = ({
             ))}
           </nav>
           <nav className="navbar-menu social">
-            <button
-              className="navbar-button"
-              onClick={() => {
-                const newTheme = theme === 'dark' ? 'light' : 'dark'
-
-                handleUpdateTheme(newTheme)
-              }}
-            >
-              {theme === 'dark' ? <Sun /> : <Moon />}
-            </button>
             <ColorDropdown
               currentColor={currentColor}
               setCurrentColor={setCurrentColor}
             />
+            <div className="tooltip-container">
+              <button
+                className="navbar-button"
+                onClick={() => {
+                  const newTheme = theme === 'dark' ? 'light' : 'dark'
+
+                  handleUpdateTheme(newTheme)
+                }}
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun /> : <Moon />}
+              </button>
+              <div className="tooltip">Theme</div>
+            </div>
             {socialLinks.map((link) => (
               <SocialIcon
                 target="_blank"

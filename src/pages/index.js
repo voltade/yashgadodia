@@ -39,6 +39,7 @@ export default function Index({ data }) {
                 I'm a Software Engineer turned Product Manager. I love building things.
                 Currently Founding PM @ Voltade, bringing the best of AI to SMEs.
               </p>
+              <p className="hero-proof-points-title">Past experience</p>
               <ul className="hero-proof-points">
                 <li>
                   <span className="hero-proof-point-header">Ninja Van</span>
@@ -137,6 +138,16 @@ export default function Index({ data }) {
                           Article
                         </Link>
                       )}
+                      {project.pitchDeckUrl && (
+                        <a
+                          className="button small"
+                          href={project.pitchDeckUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Pitch deck
+                        </a>
+                      )}
                       {project.url && (
                         <a
                           className="button small"
@@ -213,6 +224,7 @@ export const pageQuery = graphql`
             title
             tags
             categories
+            external_url
           }
         }
       }
@@ -238,6 +250,7 @@ export const pageQuery = graphql`
             title
             tags
             categories
+            external_url
           }
         }
       }

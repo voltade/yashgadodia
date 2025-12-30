@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { GatsbyImage } from 'gatsby-plugin-image'
@@ -13,11 +13,29 @@ import { slugify } from '../utils/helpers'
 
 export default function PostTemplate({ data }) {
   const post = data.markdownRemark
-  const { title, date, comments_off, thumbnail, tags } = post.frontmatter
+  const { title, date, comments_off, thumbnail, tags, external_url } =
+    post.frontmatter
+
+  useEffect(() => {
+    if (!external_url) return
+    if (typeof window === 'undefined') return
+    window.location.replace(external_url)
+  }, [external_url])
 
   return (
     <>
-      <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
+      <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`}>
+        {external_url
+          ? [
+              <meta
+                key="external-redirect"
+                httpEquiv="refresh"
+                content={`0;url=${external_url}`}
+              />,
+              <link key="external-canonical" rel="canonical" href={external_url} />,
+            ]
+          : null}
+      </Helmet>
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
 
       <PostLayout post={post}>
@@ -34,13 +52,17 @@ export default function PostTemplate({ data }) {
           date={
             <div className="small flex-align-center gap">
               <span>{date}</span>
-              <div className="divider" />
-              <a href="#comments">Comments</a>
+              {!comments_off && (
+                <>
+                  <div className="divider" />
+                  <a href="#comments">Comments</a>
+                </>
+              )}
             </div>
           }
         >
           <div className="tags">
-            {tags.map((tag) => {
+            {(tags || []).map((tag) => {
               return (
                 <Link
                   key={tag}
@@ -55,13 +77,27 @@ export default function PostTemplate({ data }) {
           </div>
         </Hero>
 
-        <div
-          className="main-article"
-          id={post.fields.slug}
-          dangerouslySetInnerHTML={{
-            __html: `<div class="introduction" id="introduction"></div>${post.html}`,
-          }}
-        />
+        {external_url && (
+          <div className="main-article">
+            <p>
+              Redirecting to{' '}
+              <a href={external_url} rel="noopener noreferrer">
+                {external_url}
+              </a>
+              …
+            </p>
+          </div>
+        )}
+
+        {!external_url && (
+          <div
+            className="main-article"
+            id={post.fields.slug}
+            dangerouslySetInnerHTML={{
+              __html: `<div class="introduction" id="introduction"></div>${post.html}`,
+            }}
+          />
+        )}
         {!comments_off && (
           <section id="comments" className="comments">
             <h3>Comments</h3>
@@ -90,6 +126,7 @@ export const pageQuery = graphql`
         tags
         categories
         description
+        external_url
         comments_off
         thumbnail {
           childImageSharp {

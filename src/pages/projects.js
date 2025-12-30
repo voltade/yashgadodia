@@ -41,18 +41,11 @@ export default function Projects() {
             {sortedProjects.map((project) => {
               return (
                 <li className="projects-list-item" key={project.slug}>
-                  <div className="projects-list-year">
-                    {project.date && (
-                      <time className="projects-list-date">{project.date}</time>
-                    )}
-                  </div>
-
-                  <div className="projects-list-timeline" aria-hidden="true">
-                    <span className="projects-list-dot" />
-                  </div>
-
                   <div className="projects-list-content">
                     <div className="projects-list-top">
+                      {project.date && (
+                        <time className="projects-list-date">{project.date}</time>
+                      )}
                       {project.url ? (
                         <a
                           className="projects-list-name"
@@ -72,6 +65,15 @@ export default function Projects() {
                     <div className="projects-list-links">
                       {project.writeup && (
                         <Link to={project.writeup}>Write-up</Link>
+                      )}
+                      {project.pitchDeckUrl && (
+                        <a
+                          href={project.pitchDeckUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Pitch deck
+                        </a>
                       )}
                       {project.url && (
                         <a href={project.url} target="_blank" rel="noreferrer">

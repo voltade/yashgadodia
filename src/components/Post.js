@@ -39,17 +39,41 @@ export const Post = ({ node, prefix, includeYear, query }) => {
     return <div>{title}</div>
   }
 
+  const href = prefix ? `/${prefix}${node.slug}` : node.slug
+
+  const Wrapper = ({ children }) => {
+    if (node.external_url) {
+      return (
+        <a
+          href={node.external_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="post"
+        >
+          {children}
+        </a>
+      )
+    }
+
+    return (
+      <Link to={href} key={node.id} className="post">
+        {children}
+      </Link>
+    )
+  }
+
   return (
-    <Link
-      to={prefix ? `/${prefix}${node.slug}` : node.slug}
-      key={node.id}
-      className="post"
-    >
+    <Wrapper>
       <time>{formattedDate}</time>
-      <div>
-        {newPost && <div className="button x-small">✨ New</div>}{' '}
-        {getTitle(node.title, query)}
+      <div className="post-body">
+        <div className="post-title-row">
+          {newPost && <div className="button x-small">✨ New</div>}{' '}
+          {getTitle(node.title, query)}
+        </div>
+        {node.description && (
+          <div className="post-description">{node.description}</div>
+        )}
       </div>
-    </Link>
+    </Wrapper>
   )
 }

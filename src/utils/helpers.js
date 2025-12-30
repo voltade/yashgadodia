@@ -7,6 +7,7 @@ export function getSimplifiedPosts(posts, options = {}) {
     categories: post.node.frontmatter.categories,
     title: post.node.frontmatter.title,
     description: post.node.frontmatter.description,
+    external_url: post.node.frontmatter.external_url,
     ...(options.thumbnails && {
       thumbnail:
         post.node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData,

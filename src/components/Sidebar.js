@@ -16,6 +16,7 @@ export const Sidebar = ({
   setCurrentColor,
 }) => {
   const links = [
+    { url: '/writing', label: 'Writing', image: blog },
     { url: '/blog', label: 'Blog', image: blog },
     { url: '/notes', label: 'Notes', image: projects },
     { url: '/projects', label: 'Projects', image: projects },
@@ -40,6 +41,10 @@ export const Sidebar = ({
             <span className="site-name">yashgadodia.com</span>
           </Link>
           <div className="flex-align-center">
+            <ColorDropdown
+              currentColor={currentColor}
+              setCurrentColor={setCurrentColor}
+            />
             <div className="tooltip-container">
               <button
                 className="navbar-button"
@@ -53,10 +58,6 @@ export const Sidebar = ({
               </button>
               <div className="tooltip">Theme</div>
             </div>
-            <ColorDropdown
-              currentColor={currentColor}
-              setCurrentColor={setCurrentColor}
-            />
           </div>
         </div>
       </section>
@@ -65,9 +66,8 @@ export const Sidebar = ({
         <h2>About Me</h2>
         <div className="sidebar-content">
           <p>
-            I’m <Link to="/me">Yash</Link>. I build operational software, and I
-            write about what works (and what breaks) when products meet real
-            operations.
+            I’m <Link to="/me">Yash</Link>. I am a Software Engineer turned Product Manager.
+            I like to build things.
           </p>
         </div>
       </section>
