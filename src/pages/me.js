@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'gatsby'
 
 import { Layout } from '../components/Layout'
 import { PageLayout } from '../components/PageLayout'
@@ -8,7 +9,7 @@ import { SEO } from '../components/SEO'
 import config from '../utils/config'
 
 export default function Me() {
-  const title = 'About Me'
+  const title = 'About'
 
   return (
     <>
@@ -18,27 +19,72 @@ export default function Me() {
       <PageLayout>
         <Hero
           title={title}
-          description="Product manager, ex-backend engineer, occasional founder."
+          description="A straightforward look at what I do and how I work."
         />
         <div className="page-article">
           <p>
-            I'm Yash Gadodia. I write product, build teams, and ship software. I care about making systems that are dependable, measurable, and actually used.
+            Hey — I’m Yash. I’m based in Singapore and I work as a founding Product
+            Manager at Voltade.
           </p>
           <p>
-            Right now I'm a Product Manager at Voltade, working on AI-first products for SMEs. Before that I was a backend engineer at Ninja Van, building internal platforms and services that had to run reliably under real operational pressure.
-          </p>
-          <p>
-            Earlier I co-founded AfterClass, a student platform with tens of thousands of users across Singapore universities. I also run The Bon Pet, a D2C business that keeps my product thinking grounded in real trade-offs.
-          </p>
-
-          <h2>How I work</h2>
-          <p>
-            I think in terms of actual workflows, failure modes, and instrumentation—not polished demos or vanity metrics. I work close to engineers and data. AI features are interesting only when they move a workflow forward reliably.
+            This site is where I keep my <Link to="/blog">writing</Link>,{' '}
+            <Link to="/notes">notes</Link>, and a small list of{' '}
+            <Link to="/projects">projects</Link>. It’s mostly for peers: people
+            building products, running teams, or dealing with the messiness of real
+            operations.
           </p>
 
-          <h2>What I'm working on now</h2>
+          <h2>Work</h2>
           <p>
-            At Voltade I lead product for Envoy (a chat-based CRM) and Digital Brain (a flexible ERP foundation for messy SME operations). My focus is on defining clear product bets, getting early feedback in production, and improving reliability over time.
+            At Voltade, I build operational software for SMEs — CRM and ERP-shaped
+            products, plus the platform underneath that keeps them reliable.
+          </p>
+          <p>
+            Before that, I worked on product and ops systems at Ninja Van
+            (logistics). I’ve also built and run a consumer business (The Bon Pet),
+            which taught me what “edge cases” look like when you’re the one handling
+            fulfilment.
+          </p>
+
+          <h2>How I Work</h2>
+          <ul>
+            <li>
+              I like boring systems: clear state, clean permissions, sensible
+              defaults, and the ability to debug what happened.
+            </li>
+            <li>
+              I spend a lot of time writing: problem statements, trade-offs, and
+              what we’re choosing not to do.
+            </li>
+            <li>
+              I stay close to implementation (TypeScript, SQL/Postgres, deployments)
+              because it keeps plans honest and reduces hand-off loss.
+            </li>
+          </ul>
+
+          <h2>Now</h2>
+          <p>
+            These days I’m mostly focused on building Voltade’s core platform and
+            shipping client work end-to-end — scoping, execution, and keeping
+            quality high even when things are moving quickly.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            If you want to talk about building products that survive contact with
+            reality, you can reach me at{' '}
+            <a href="mailto:pirsquare.yash@gmail.com">pirsquare.yash@gmail.com</a>.
+          </p>
+          <p>
+            If email isn’t your thing, here’s{' '}
+            <a
+              href="https://www.linkedin.com/in/yashgadodia"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+            .
           </p>
         </div>
       </PageLayout>

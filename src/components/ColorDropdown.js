@@ -53,10 +53,15 @@ export const ColorDropdown = ({ currentColor, setCurrentColor }) => {
   return (
     <div className="dropdown tooltip-container" ref={dropdownRef}>
       <button
+        type="button"
         onClick={handleToggle}
         className={`navbar-button ${open ? 'active' : ''}`}
+        aria-label="Change accent color"
       >
-        <div className="circle" style={{ backgroundColor: currentColor }} />
+        <div
+          className="circle"
+          style={{ backgroundColor: currentColor || 'var(--color-primary)' }}
+        />
       </button>
       {open && (
         <div className="dropdown-results">

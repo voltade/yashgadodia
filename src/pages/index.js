@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import { Link, graphql } from 'gatsby'
 
-import { GatsbyImage } from 'gatsby-plugin-image'
 import Helmet from 'react-helmet'
 
 import { Layout } from '../components/Layout'
@@ -19,16 +18,11 @@ import floppy from '../assets/nav-floppy.png'
 export default function Index({ data }) {
   const latestNotes = data.latestNotes.edges
   const latestArticles = data.latestArticles.edges
-  const highlights = data.highlights.edges
   const notes = useMemo(() => getSimplifiedPosts(latestNotes), [latestNotes])
 
   const articles = useMemo(
     () => getSimplifiedPosts(latestArticles),
     [latestArticles]
-  )
-  const simplifiedHighlights = useMemo(
-    () => getSimplifiedPosts(highlights, { thumbnails: true }),
-    [highlights]
   )
 
   return (
@@ -40,14 +34,30 @@ export default function Index({ data }) {
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>I build AI products that work in production</h1>
+              <h1>Hi, I’m Yash.</h1>
               <p className="hero-description">
-                Most AI demos are impressive. Most AI products are fragile. I'm a product manager focused on closing that gap—figuring out what to build, how to evaluate it, and how to keep it reliable once real users show up.
+                I'm a Software Engineer turned Product Manager. I love building things.
+                Currently Founding PM @ Voltade, bringing the best of AI to SMEs.
               </p>
               <ul className="hero-proof-points">
-                <li>Founding PM at Voltade, building a chat-based CRM and customisable ERP systems for Southeast Asian businesses.</li>
-                <li>Came from backend engineering. I can read the codebase, talk to the database, and debug a stuck deployment.</li>
-                <li>Ran my own consumer business before this, so I've seen what happens when systems fail at 2am.</li>
+                <li>
+                  <span className="hero-proof-point-header">Ninja Van</span>
+                  <span className="hero-proof-point-body">
+                    Shipped products and internal tools used across last-mile operations.
+                  </span>
+                </li>
+                <li>
+                  <span className="hero-proof-point-header">The Bon Pet</span>
+                  <span className="hero-proof-point-body">
+                    Built and scaled a consumer brand to $10k MRR from zero.
+                  </span>
+                </li>
+                <li>
+                  <span className="hero-proof-point-header">AfterClass</span>
+                  <span className="hero-proof-point-body">
+                    Co-built a student platform still active with 40k users.
+                  </span>
+                </li>
               </ul>
               <p
                 className="flex-wrap flex-align-center gap"
@@ -76,22 +86,81 @@ export default function Index({ data }) {
 
         <section className="section-index">
           <Heading
-            title="How I Work"
-            description="The stuff I actually spend my time on."
+            title="Featured Projects"
+            slug="/projects"
+            buttonText="All Projects"
+            description="Products and tools I've built or contributed to."
           />
-          <div className="pillars">
-            <div className="pillar">
-              <h3>Turning AI capabilities into useful workflows</h3>
-              <p>Not "what can this model do?" but "what should we ship first, and how will we know it's working?" I write specs that engineering can actually build against.</p>
-            </div>
-            <div className="pillar">
-              <h3>Treating reliability as a feature</h3>
-              <p>Guardrails, fallbacks, monitoring. The boring work that determines whether users trust the product or abandon it after a week.</p>
-            </div>
-            <div className="pillar">
-              <h3>Making sense of messy domains</h3>
-              <p>CRMs, ERPs, operations software. I spend time understanding how people actually work, then figure out where software can take load off them.</p>
-            </div>
+
+          <div className="cards">
+            {projectsList
+              .filter((project) => project.highlight)
+              .map((project) => {
+                return (
+                  <div className="card" key={`hightlight-${project.slug}`}>
+                    {project.date && <time>{project.date}</time>}
+                    {project.previewImage && (
+                      <a
+                        href={project.url || project.sourceUrl || '#'}
+                        target={
+                          project.url || project.sourceUrl ? '_blank' : undefined
+                        }
+                        rel={
+                          project.url || project.sourceUrl ? 'noreferrer' : undefined
+                        }
+                        className="project-preview-link"
+                      >
+                        <img
+                          src={project.previewImage}
+                          alt={`${project.name} preview`}
+                          loading="lazy"
+                          className="project-preview"
+                        />
+                      </a>
+                    )}
+                    {project.url ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="card-header"
+                      >
+                        {project.name}
+                      </a>
+                    ) : (
+                      <div className="card-header">{project.name}</div>
+                    )}
+                    <p>{project.tagline}</p>
+                    <div className="card-links">
+                      {project.writeup && (
+                        <Link className="button small" to={project.writeup}>
+                          Article
+                        </Link>
+                      )}
+                      {project.url && (
+                        <a
+                          className="button small"
+                          href={project.url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Visit
+                        </a>
+                      )}
+                      {project.sourceUrl && (
+                        <a
+                          className="button small"
+                          href={project.sourceUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Code
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
           </div>
         </section>
 
@@ -113,81 +182,6 @@ export default function Index({ data }) {
             description="Shorter observations and work-in-progress thinking."
           />
           <Posts data={notes} />
-        </section>
-
-        <section className="section-index">
-          <Heading
-            title="Deep Dives"
-            slug="/topics"
-            buttonText="All Topics"
-            description="Long-form explorations of specific domains and technical concepts."
-          />
-          <div className="cards">
-            {simplifiedHighlights.map((post) => {
-              return (
-                <Link
-                  to={post.slug}
-                  className="card card-highlight"
-                  key={`popular-${post.slug}`}
-                >
-                  {post.thumbnail && (
-                    <GatsbyImage image={post.thumbnail} alt="Thumbnail" />
-                  )}
-                  <div>{post.title}</div>
-                </Link>
-              )
-            })}
-          </div>
-        </section>
-
-        <section>
-          <Heading
-            title="Projects"
-            slug="/projects"
-            buttonText="All Projects"
-            description="Products and companies I've built or contributed to."
-          />
-
-          <div className="cards">
-            {projectsList
-              .filter((project) => project.highlight)
-              .slice(0, 4)
-              .map((project) => {
-                return (
-                  <div className="card" key={`highlight-${project.slug}`}>
-                    <time>{project.date}</time>
-                    {project.url ? (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="card-header"
-                      >
-                        {project.name}
-                      </a>
-                    ) : (
-                      <span className="card-header">{project.name}</span>
-                    )}
-                    <p>{project.tagline}</p>
-                    <div className="card-links">
-                      <Link className="button small" to="/projects">
-                        Read more
-                      </Link>
-                      {project.url && (
-                        <a
-                          className="button small"
-                          href={project.url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Visit
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
-          </div>
         </section>
       </PageLayout>
     </>
@@ -244,30 +238,6 @@ export const pageQuery = graphql`
             title
             tags
             categories
-          }
-        }
-      }
-    }
-    highlights: allMarkdownRemark(
-      limit: 12
-      sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { categories: { eq: "Highlight" } } }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 40, height: 40, layout: FIXED)
-              }
-            }
           }
         }
       }

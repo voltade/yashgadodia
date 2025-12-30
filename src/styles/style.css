@@ -1104,6 +1104,17 @@ a.navbar-icon {
   color: var(--color-text-muted);
 }
 
+.hero-proof-point-header {
+  display: block;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.hero-proof-point-body {
+  display: block;
+  color: var(--color-text-muted);
+}
+
 .pillars {
   display: grid;
   grid-template-columns: 1fr;
@@ -1322,12 +1333,118 @@ a time.new-post {
 
 .cards {
   display: grid;
-  gap: 0.5rem;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+/* Projects list */
+
+.projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.projects-list-item {
+  --projects-dot-offset: 1.05rem;
+  padding: 0.75rem 0;
+  display: grid;
+  grid-template-columns: 3.25rem 1.5rem 1fr;
+  align-items: start;
+}
+
+.projects-list-year {
+  padding-top: 0.1rem;
+}
+
+.projects-list-top {
+  line-height: 1.25;
+}
+
+.projects-list-date {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.projects-list-timeline {
+  position: relative;
+}
+
+.projects-list-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+  transform: translateX(-50%);
+}
+
+.projects-list-timeline::after {
+  content: '';
+  position: absolute;
+  top: var(--projects-dot-offset);
+  left: 50%;
+  width: 0.9rem;
+  height: 2px;
+  background: var(--color-border);
+}
+
+.projects-list-item:first-child .projects-list-timeline::before {
+  top: var(--projects-dot-offset);
+}
+
+.projects-list-item:last-child .projects-list-timeline::before {
+  bottom: calc(100% - var(--projects-dot-offset));
+}
+
+.projects-list-dot {
+  position: absolute;
+  left: 50%;
+  top: var(--projects-dot-offset);
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: var(--color-background);
+  border: 2px solid var(--color-text-muted);
+  transform: translate(-50%, -50%);
+}
+
+.projects-list-name {
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.projects-list-name:hover {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+}
+
+.projects-list-tagline {
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}
+
+.projects-list-links {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.9rem;
 }
 
 @media screen and (min-width: 800px) {
+  .projects-list-item {
+    grid-template-columns: 4rem 1.75rem 1fr;
+  }
+
   .cards {
-    gap: 1rem;
+    gap: 1.5rem;
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1338,11 +1455,11 @@ a time.new-post {
 
 @media screen and (min-width: 1360px) {
   .cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .cards.with-tags {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1350,11 +1467,36 @@ a time.new-post {
 
 .card {
   position: relative;
-  padding: 0.75rem;
-  background: var(--color-background-card);
+  padding: 1.1rem;
+  background: light-dark(var(--gray-0), var(--gray-8));
   border-radius: var(--border-radius);
   border: 2px solid var(--color-border-card);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-elevated);
+  transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-hover);
+  }
+
+  .project-preview-link {
+    display: block;
+    margin-bottom: 0.75rem;
+    border-radius: calc(var(--border-radius) - 2px);
+    overflow: hidden;
+    border: 1px solid var(--color-border-card);
+    aspect-ratio: 16 / 9;
+    background: var(--color-background);
+  }
+
+  .project-preview {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top;
+    background: var(--color-background);
+  }
 
   .card-links {
     display: flex;
@@ -1405,7 +1547,7 @@ a time.new-post {
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--color-text);
     line-height: 1.5;
     margin: 0.5rem 0 1rem;
@@ -1414,7 +1556,7 @@ a time.new-post {
 
 @media screen and (min-width: 1020px) {
   .card {
-    padding: 1rem;
+    padding: 1.25rem;
 
     a {
       font-size: 1.1rem;
@@ -1575,6 +1717,10 @@ a.footer-link {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.footer-credit {
+  color: var(--color-text-muted);
 }
 
 .footer-section {
@@ -1791,6 +1937,7 @@ a.footer-link {
   height: 16px;
   width: 16px;
   border-radius: 50%;
+  border: 1px solid var(--color-border);
 }
 
 .dropdown {

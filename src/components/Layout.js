@@ -11,6 +11,7 @@ import '../styles/new-moon.css'
 
 export const Layout = ({ children }) => {
   const [theme, setTheme] = useState('dark')
+  const [currentColor, setCurrentColor] = useState('var(--theme-green)')
 
   const handleUpdateTheme = (newTheme) => {
     const html = document.documentElement
@@ -36,6 +37,7 @@ export const Layout = ({ children }) => {
   useEffect(() => {
     const html = document.documentElement
     const savedTheme = window.localStorage.getItem('theme')
+    const savedColor = window.localStorage.getItem('color')
 
     if (savedTheme) {
       setTheme(savedTheme)
@@ -51,6 +53,11 @@ export const Layout = ({ children }) => {
         html.classList.remove('is-light')
       }
     }
+
+    if (savedColor) {
+      setCurrentColor(savedColor)
+      document.documentElement.style.setProperty('--color-primary', savedColor)
+    }
   }, [])
 
   return (
@@ -63,10 +70,14 @@ export const Layout = ({ children }) => {
         <Navigation
           handleUpdateTheme={handleUpdateTheme}
           theme={theme}
+          currentColor={currentColor}
+          setCurrentColor={setCurrentColor}
         />
         <Sidebar
           handleUpdateTheme={handleUpdateTheme}
           theme={theme}
+          currentColor={currentColor}
+          setCurrentColor={setCurrentColor}
         />
         <div className="main-wrapper">
           <div className="main-container">{children}</div>

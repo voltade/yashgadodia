@@ -1,9 +1,9 @@
 const config = {
-  siteTitle: "Yash's Website",
+  siteTitle: 'Yash Gadodia',
   siteUrl: 'https://yashgadodia.com',
   siteLogo: '/logo.png',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae commodo ligula.',
+    'Product builder working on operational software. Founding PM at Voltade. Based in Singapore.',
 }
 
 export default config

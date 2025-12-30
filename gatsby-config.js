@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "Yash Gadodia | AI Product Manager",
+    title: 'Yash Gadodia',
     author: { name: 'Yash Gadodia' },
     pathPrefix: '/',
     siteUrl: 'https://yashgadodia.com',
     description:
-      'AI product manager building products that work in production. Founding PM at Voltade, ex-backend engineer. Based in Singapore.',
+      'Product builder working on operational software. Founding PM at Voltade. Based in Singapore.',
     feedUrl: 'https://yashgadodia.com/rss.xml',
     logo: 'https://yashgadodia.com/logo.png',
   },
@@ -70,10 +70,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Yash Gadodia | AI Product Manager',
+        name: 'Yash Gadodia',
         short_name: 'Yash Gadodia',
         description:
-          'AI product manager building products that work in production. Founding PM at Voltade, ex-backend engineer.',
+          'Product builder working on operational software. Founding PM at Voltade. Based in Singapore.',
         start_url: '/',
         background_color: 'white',
         // theme_color: '#959af8',
@@ -107,7 +107,7 @@ module.exports = {
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [
                     { 'content:encoded': edge.node.html },
-                    { author: 'hello@yashgadodia.com' },
+                    { author: 'pirsquare.yash@gmail.com' },
                   ],
                 })
               })
@@ -163,13 +163,6 @@ module.exports = {
       options: {
         name: 'posts',
         path: `${__dirname}/content/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'assets',
-        path: `${__dirname}/static/`,
       },
     },
     'gatsby-plugin-image',

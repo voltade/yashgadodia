@@ -5,18 +5,20 @@ import floppyLogo from '../assets/nav-floppy.png'
 import floppy from '../assets/floppylogo.png'
 import blog from '../assets/nav-blog.png'
 import projects from '../assets/nav-projects.png'
-import github from '../assets/nav-github.png'
 import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
+import { ColorDropdown } from './ColorDropdown'
 
 export const Sidebar = ({
   theme,
   handleUpdateTheme,
+  currentColor,
+  setCurrentColor,
 }) => {
   const links = [
-    { url: '/blog', label: 'Blog', image: projects },
-    { url: '/notes', label: 'Notes', image: blog },
-    { url: '/projects', label: 'Projects', image: github },
+    { url: '/blog', label: 'Blog', image: blog },
+    { url: '/notes', label: 'Notes', image: projects },
+    { url: '/projects', label: 'Projects', image: projects },
     { url: '/me', label: 'About Me', image: floppy },
   ]
 
@@ -51,6 +53,10 @@ export const Sidebar = ({
               </button>
               <div className="tooltip">Theme</div>
             </div>
+            <ColorDropdown
+              currentColor={currentColor}
+              setCurrentColor={setCurrentColor}
+            />
           </div>
         </div>
       </section>
@@ -59,8 +65,9 @@ export const Sidebar = ({
         <h2>About Me</h2>
         <div className="sidebar-content">
           <p>
-            I'm <Link to="/me">yash</Link>, and this corner of the internet is a
-            playground for experiments, notes, and works in progress. 🌱
+            I’m <Link to="/me">Yash</Link>. I build operational software, and I
+            write about what works (and what breaks) when products meet real
+            operations.
           </p>
         </div>
       </section>
@@ -79,20 +86,27 @@ export const Sidebar = ({
       <section className="sidebar-section">
         <h2>Stay Connected</h2>
         <p className="sidebar-links">
-          <a href="mailto:hello@yashgadodia.com">Email</a>
-          <a
-            href="https://github.com/yashgadodia"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
+          <a href="mailto:pirsquare.yash@gmail.com">Email</a>
           <a
             href="https://www.linkedin.com/in/yashgadodia"
             target="_blank"
             rel="noopener noreferrer"
           >
             LinkedIn
+          </a>
+          <a
+            href="https://open.spotify.com/search/yash%20gadodia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Spotify
+          </a>
+          <a
+            href="https://www.goodreads.com/user/show/59594250-yash-gadodia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Goodreads
           </a>
         </p>
       </section>

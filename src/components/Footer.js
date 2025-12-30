@@ -1,19 +1,14 @@
 import React from 'react'
 
-import netlify from '../../content/thumbnails/netlify.png'
-import gatsby from '../assets/gatsby.png'
-import github from '../assets/nav-github.png'
-
 const links = [
-  { url: 'mailto:hello@yashgadodia.com', label: 'Email' },
-  { url: '/rss.xml', label: 'RSS feed' },
-  { url: 'https://github.com/yashgadodia', label: 'GitHub' },
+  { url: 'mailto:pirsquare.yash@gmail.com', label: 'Email' },
   { url: 'https://www.linkedin.com/in/yashgadodia', label: 'LinkedIn' },
+  { url: 'https://open.spotify.com/search/yash%20gadodia', label: 'Spotify' },
+  { url: 'https://www.goodreads.com/user/show/59594250-yash-gadodia', label: 'Goodreads' },
 ]
 const madeWithLinks = [
-  { url: 'https://www.gatsbyjs.org', label: 'Gatsby', icon: gatsby },
-  { url: 'https://github.com/yashgadodia', label: 'GitHub', icon: github },
-  { url: 'https://www.netlify.com', label: 'Netlify', icon: netlify },
+  { url: 'https://open.spotify.com/search/yash%20gadodia', label: 'Spotify' },
+  { url: 'https://www.goodreads.com/user/show/59594250-yash-gadodia', label: 'Goodreads' },
 ]
 
 export const Footer = () => {
@@ -43,12 +38,23 @@ export const Footer = () => {
               key={link.url}
               className="button small"
             >
-              <img src={link.icon} alt={link.label} />
+              {link.icon ? <img src={link.icon} alt={link.label} /> : null}
               <span>{link.label}</span>
             </a>
           ))}
         </nav>
-        <div className="footer-made-by">Made with ❤️ by yash gadodia</div>
+        <div className="footer-made-by">Made by Yash Gadodia</div>
+        <div className="footer-credit">
+          Inspired by{' '}
+          <a
+            href="https://www.taniarascia.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-link"
+          >
+            taniarascia.com
+          </a>
+        </div>
       </section>
     </footer>
   )

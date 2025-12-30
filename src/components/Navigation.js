@@ -7,25 +7,30 @@ import floppy from '../assets/floppylogo.png'
 import floppyLogo from '../assets/nav-floppy.png'
 import blog from '../assets/nav-blog.png'
 import projects from '../assets/nav-projects.png'
-import github from '../assets/nav-github.png'
 import { Moon } from '../assets/Moon'
 import { Sun } from '../assets/Sun'
 import { Menu } from '../assets/Menu'
 import { Close } from '../assets/Close'
 import { Searchbar } from './Searchbar'
+import { ColorDropdown } from './ColorDropdown'
 
 const links = [
   { url: '/blog', label: 'Blog', image: projects },
   { url: '/notes', label: 'Notes', image: blog },
-  { url: '/projects', label: 'Projects', image: github },
+  { url: '/projects', label: 'Projects', image: projects },
   { url: '/me', label: 'About Me', image: floppy },
 ]
 
-const socialLinks = [{ url: 'https://github.com/yashgadodia' }]
+const socialLinks = [
+  { url: 'https://www.linkedin.com/in/yashgadodia' },
+  { url: 'https://open.spotify.com/search/yash%20gadodia' },
+  { url: 'https://www.goodreads.com/user/show/59594250-yash-gadodia' },
+]
 
 export const Navigation = ({
   handleUpdateTheme,
   theme,
+  currentColor,
   setCurrentColor,
 }) => {
   const location = useLocation()
@@ -106,6 +111,10 @@ export const Navigation = ({
             >
               {theme === 'dark' ? <Sun /> : <Moon />}
             </button>
+            <ColorDropdown
+              currentColor={currentColor}
+              setCurrentColor={setCurrentColor}
+            />
             {socialLinks.map((link) => (
               <SocialIcon
                 target="_blank"
