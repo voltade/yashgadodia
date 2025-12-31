@@ -12,6 +12,7 @@ import { PageLayout } from '../components/PageLayout'
 import { projectsList } from '../data/projectsList'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
+import { VoltadeLink } from '../components/VoltadeLink'
 import newMoon from '../assets/nav-blog.png'
 import floppy from '../assets/nav-floppy.png'
 import emailIcon from '../assets/nav-email.svg'
@@ -36,9 +37,9 @@ export default function Index({ data }) {
               <h1>Hi, I’m Yash.</h1>
               <p className="hero-description">
                 I'm a Software Engineer turned Product Manager. I love building things.
-                Currently Founding PM @ Voltade, bringing the best of AI to SMEs.
+                Currently Founding PM @ <VoltadeLink />, bringing the best of AI to SMEs.
               </p>
-              <p className="hero-proof-points-title">Past experience</p>
+              <p className="hero-proof-points-title">Past Work</p>
               <ul className="hero-proof-points">
                 <li>
                   <span className="hero-proof-point-header">Ninja Van</span>
@@ -55,7 +56,7 @@ export default function Index({ data }) {
                 <li>
                   <span className="hero-proof-point-header">AfterClass</span>
                   <span className="hero-proof-point-body">
-                    Co-built a student platform still active with 40k users.
+                    Co-founded a student platform still active with 40k users.
                   </span>
                 </li>
               </ul>
@@ -135,6 +136,12 @@ export default function Index({ data }) {
                       <div className="card-header">{project.name}</div>
                     )}
                     <p>{project.tagline}</p>
+                    {project.focus && (
+                      <div className="card-focus">
+                        <div className="card-focus-label">Focus</div>
+                        <div className="card-focus-body">{project.focus}</div>
+                      </div>
+                    )}
                     <div className="card-links">
                       {project.writeup && (
                         <Link className="button small" to={project.writeup}>

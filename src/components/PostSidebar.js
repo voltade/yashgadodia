@@ -23,6 +23,9 @@ export const PostSidebar = ({ toc }) => {
 
   useEffect(() => {
     if (activeHash) {
+      const sidebar = document.querySelector('.post-sidebar')
+      if (!sidebar || sidebar.offsetParent === null) return
+
       const anchors = document.querySelectorAll('.table-of-contents a')
       anchors.forEach((a) => {
         a.classList.remove('active')

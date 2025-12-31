@@ -184,13 +184,12 @@ a {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 /* Prevent accidental horizontal scroll on mobile */
-html,
-body {
+html {
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 /* Headings */
@@ -1441,6 +1440,18 @@ a time.new-post {
   line-height: 1.5;
 }
 
+.projects-list-focus {
+  margin-top: 0.25rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.projects-list-focus-label {
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
 .projects-list-links {
   margin-top: 0.5rem;
   display: flex;
@@ -1515,6 +1526,20 @@ a time.new-post {
     align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+
+    .button {
+      background: transparent;
+      border-color: var(--color-border-card);
+      color: var(--color-text-emphasized);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      text-decoration: none;
+    }
   }
 
   a {
@@ -1564,6 +1589,28 @@ a time.new-post {
     color: var(--color-text);
     line-height: 1.5;
     margin: 0.5rem 0 1rem;
+  }
+
+  .card-focus {
+    margin: -0.25rem 0 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border-card);
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .card-focus-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .card-focus-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
   }
 }
 

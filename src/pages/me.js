@@ -6,6 +6,7 @@ import { PageLayout } from '../components/PageLayout'
 import { Hero } from '../components/Hero'
 import { SEO } from '../components/SEO'
 import config from '../utils/config'
+import { VoltadeLink } from '../components/VoltadeLink'
 
 export default function Me() {
   const title = 'About'
@@ -43,10 +44,12 @@ export default function Me() {
 
           <h2>Work</h2>
           <p>
-            <strong>Voltade</strong>
+            <strong>
+              <VoltadeLink />
+            </strong>
           </p>
           <p>
-            At Voltade, I work on operational products used by SMEs. This includes a
+            At <VoltadeLink />, I work on operational products used by SMEs. This includes a
             chat-first CRM and a modular platform used to build custom internal systems.
           </p>
           <p>
@@ -103,9 +106,9 @@ export default function Me() {
 
           <h2>Now</h2>
           <p>
-            Right now, I’m focused on building platform foundations at Voltade and shipping
-            real work end to end — from discovery to rollout — while keeping systems stable
-            and understandable.
+            Right now, I’m focused on building platform foundations at <VoltadeLink /> and
+            shipping real work end to end — from discovery to rollout — while keeping
+            systems stable and understandable.
           </p>
 
           <h2>Contact</h2>

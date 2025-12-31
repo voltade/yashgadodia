@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import { SocialIcon } from 'react-social-icons'
 import { useLocation } from '@reach/router'
@@ -37,6 +37,10 @@ export const Navigation = ({
   const currentPath = location.pathname
   const [navOpen, setNavOpen] = useState(false)
   const [query, setQuery] = useState('')
+
+  useEffect(() => {
+    setNavOpen(false)
+  }, [currentPath])
 
   const handleToggleMobileNav = () => {
     setNavOpen((prev) => !prev)

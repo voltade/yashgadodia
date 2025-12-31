@@ -56,6 +56,12 @@ export default function Projects() {
                     </div>
 
                     <div className="projects-list-tagline">{project.tagline}</div>
+                    {project.focus && (
+                      <div className="projects-list-focus">
+                        <span className="projects-list-focus-label">Focus:</span>{' '}
+                        {project.focus}
+                      </div>
+                    )}
 
                     <div className="projects-list-links">
                       {project.writeup && (
