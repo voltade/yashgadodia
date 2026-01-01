@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Helmet from 'react-helmet'
 
-import favicon from '../assets/nav-floppy.png'
 import { Navigation } from './Navigation'
 import { Footer } from './Footer'
 import { Sidebar } from './Sidebar'
@@ -63,7 +62,8 @@ export const Layout = ({ children }) => {
   return (
     <div>
       <Helmet>
-        <link rel="shortcut icon" type="image/png" href={favicon} />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       </Helmet>
 
       <div id="layout" className="layout">

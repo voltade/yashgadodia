@@ -6,15 +6,13 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
 import { PostLayout } from '../components/PostLayout'
-import { Comments } from '../components/Comments'
 import { Hero } from '../components/Hero'
 import config from '../utils/config'
 import { slugify } from '../utils/helpers'
 
 export default function PostTemplate({ data }) {
   const post = data.markdownRemark
-  const { title, date, comments_off, thumbnail, tags, external_url } =
-    post.frontmatter
+  const { title, date, thumbnail, tags, external_url } = post.frontmatter
 
   useEffect(() => {
     if (!external_url) return
@@ -52,12 +50,6 @@ export default function PostTemplate({ data }) {
           date={
             <div className="small flex-align-center gap">
               <span>{date}</span>
-              {!comments_off && (
-                <>
-                  <div className="divider" />
-                  <a href="#comments">Comments</a>
-                </>
-              )}
             </div>
           }
         >
@@ -98,12 +90,6 @@ export default function PostTemplate({ data }) {
             }}
           />
         )}
-        {!comments_off && (
-          <section id="comments" className="comments">
-            <h3>Comments</h3>
-            <Comments />
-          </section>
-        )}
       </PostLayout>
     </>
   )
@@ -127,7 +113,6 @@ export const pageQuery = graphql`
         categories
         description
         external_url
-        comments_off
         thumbnail {
           childImageSharp {
             gatsbyImageData(width: 75, height: 75, layout: FIXED)

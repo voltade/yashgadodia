@@ -4,7 +4,6 @@ import { SocialIcon } from 'react-social-icons'
 import { useLocation } from '@reach/router'
 
 import floppy from '../assets/floppylogo.png'
-import floppyLogo from '../assets/nav-floppy.png'
 import blog from '../assets/nav-blog.png'
 import projects from '../assets/nav-projects.png'
 import { Moon } from '../assets/Moon'
@@ -57,10 +56,10 @@ export const Navigation = ({
           <Link to="/" className="navbar-title-link">
             <span>
               <img
-                src={floppyLogo}
+                src="/logo.png"
                 className="navbar-logo"
                 alt="yashgadodia.com"
-                title="💾"
+                title="yashgadodia.com"
                 height="16"
                 width="16"
               />

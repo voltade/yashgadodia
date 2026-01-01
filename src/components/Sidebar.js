@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import floppyLogo from '../assets/nav-floppy.png'
 import floppy from '../assets/floppylogo.png'
 import blog from '../assets/nav-blog.png'
 import projects from '../assets/nav-projects.png'
@@ -29,10 +28,10 @@ export const Sidebar = ({
           <Link to="/" className="flex-align-center gap">
             <span>
               <img
-                src={floppyLogo}
+                src="/logo.png"
                 className="navbar-logo"
                 alt="yashgadodia.com"
-                title="💾"
+                title="yashgadodia.com"
                 height="16"
                 width="16"
               />

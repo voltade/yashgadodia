@@ -1751,14 +1751,6 @@ img.image-float {
   }
 }
 
-/* Commets */
-
-.comments {
-  margin-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
-  scroll-margin-top: 2.5rem;
-}
-
 /* Footer */
 
 .footer {

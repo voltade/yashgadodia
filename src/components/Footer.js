@@ -6,30 +6,13 @@ const links = [
   { url: 'https://open.spotify.com/search/yash%20gadodia', label: 'Spotify' },
   { url: 'https://www.goodreads.com/user/show/59594250-yash-gadodia', label: 'Goodreads' },
 ]
-const madeWithLinks = [
-  { url: 'https://open.spotify.com/search/yash%20gadodia', label: 'Spotify' },
-  { url: 'https://www.goodreads.com/user/show/59594250-yash-gadodia', label: 'Goodreads' },
-]
 
 export const Footer = () => {
   return (
     <footer className="footer">
       <section className="footer-section">
-        <nav className="footer-menu">
-          {links.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={link.url}
-              className="footer-link"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
         <nav className="footer-menu-buttons">
-          {madeWithLinks.map((link) => (
+          {links.map((link) => (
             <a
               href={link.url}
               title={link.label}
