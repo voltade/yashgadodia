@@ -12,7 +12,7 @@ import { projectsList } from '../data/projectsList'
 export default function Projects() {
   const title = 'Projects'
   const description =
-    'A running list of things I’ve built or worked on. I keep this focused on work where I had real ownership and learned something meaningful.'
+    'A running list of things I’ve built or worked on. I keep this focused on work where I had ownership and learned something meaningful.'
 
   const sortedProjects = React.useMemo(() => {
     const getYear = (project) => {

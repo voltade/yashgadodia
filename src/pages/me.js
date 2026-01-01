@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'gatsby'
 
 import { Layout } from '../components/Layout'
 import { PageLayout } from '../components/PageLayout'
@@ -116,6 +117,11 @@ export default function Me() {
             If you want to talk, you can reach me at{' '}
             <a href="mailto:pirsquare.yash@gmail.com">pirsquare.yash@gmail.com</a>
             .
+          </p>
+          <p className="flex-wrap flex-align-center gap" style={{ marginTop: '1.25rem' }}>
+            <Link className="button" to="/cv">
+              View CV
+            </Link>
           </p>
         </div>
       </PageLayout>

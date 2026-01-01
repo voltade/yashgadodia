@@ -12,19 +12,23 @@ export const Footer = () => {
     <footer className="footer">
       <section className="footer-section">
         <nav className="footer-menu-buttons">
-          {links.map((link) => (
-            <a
-              href={link.url}
-              title={link.label}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={link.url}
-              className="button small"
-            >
-              {link.icon ? <img src={link.icon} alt={link.label} /> : null}
-              <span>{link.label}</span>
-            </a>
-          ))}
+          {links.map((link) => {
+            const isExternal = link.url.startsWith('http')
+
+            return (
+              <a
+                href={link.url}
+                title={link.label}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                key={link.url}
+                className="button small"
+              >
+                {link.icon ? <img src={link.icon} alt={link.label} /> : null}
+                <span>{link.label}</span>
+              </a>
+            )
+          })}
         </nav>
         <div className="footer-made-by">Made by Yash Gadodia</div>
         <div className="footer-credit">

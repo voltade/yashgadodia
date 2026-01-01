@@ -22,7 +22,7 @@ export const projectsList = [
     highlight: true,
   },
   {
-    name: 'Ninja Easy',
+    name: 'Ninja Easy - Ninja Van',
     slug: 'ninja-easy',
     tagline:
       'Backend lead for a parcel delivery product. Led backend development from 0 to ~13k orders in five months; a later iteration drove ~80% growth.',
@@ -51,12 +51,12 @@ export const projectsList = [
     highlight: false,
   },
   {
-    name: 'Schema',
+    name: 'Schema - Synthesis Partners',
     slug: 'schema',
     tagline:
       'Track strategic signals by discovering patterns in large datasets.',
     focus: 'Backend work on a database that uses topic modelling to surface change drivers and strategic signals across large corpora. Used by F500 companies for signal tracking and analysis.',
-    url: 'https://schema.synthesis.partners/',
+    url: 'https://synthesis.partners/',
     date: '2024–2025',
     highlight: false,
   },
