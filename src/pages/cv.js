@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 
@@ -17,6 +17,15 @@ export default function CV() {
   const ninjaVanInternshipWriteup =
     'https://medium.com/ninjavan-tech/my-ninja-van-internship-experience-39e6a4a33364'
   const accentHex = '#6f5cff'
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+
+    document.body.classList.add('is-cv')
+    return () => {
+      document.body.classList.remove('is-cv')
+    }
+  }, [])
 
   return (
     <>
