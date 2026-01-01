@@ -51,6 +51,16 @@ export const projectsList = [
     highlight: false,
   },
   {
+    name: 'Schema',
+    slug: 'schema',
+    tagline:
+      'Track strategic signals by discovering patterns in large datasets.',
+    focus: 'Backend work on a database that uses topic modelling to surface change drivers and strategic signals across large corpora. Used by F500 companies for signal tracking and analysis.',
+    url: 'https://schema.synthesis.partners/',
+    date: '2024–2025',
+    highlight: false,
+  },
+  {
     name: 'AfterClass',
     slug: 'afterclass',
     tagline:
