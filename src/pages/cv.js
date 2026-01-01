@@ -1,36 +1,54 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, withPrefix } from 'gatsby'
+import { Link } from 'gatsby'
 
-import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
-import { PageLayout } from '../components/PageLayout'
-import config from '../utils/config'
+import { projectsList } from '../data/projectsList'
+import { VoltadeLink } from '../components/VoltadeLink'
+import { CVLayout } from '../components/CVLayout'
 
 export default function CV() {
-  const title = 'CV'
-  const cvPdfPath = withPrefix('/cv.pdf')
+  const title = 'Yash Gadodia — CV'
+  const vorank = projectsList.find((p) => p.slug === 'vorank')
+  const theBonPet = projectsList.find((p) => p.slug === 'the-bon-pet')
+  const afterclass = projectsList.find((p) => p.slug === 'afterclass')
+  const schema = projectsList.find((p) => p.slug === 'schema')
+  const ninjaEasy = projectsList.find((p) => p.slug === 'ninja-easy')
+  const ninjaVanInternshipWriteup =
+    'https://medium.com/ninjavan-tech/my-ninja-van-internship-experience-39e6a4a33364'
+  const accentHex = '#6f5cff'
 
   return (
     <>
       <Helmet
-        title={`${title} | ${config.siteTitle}`}
-        bodyAttributes={{ class: 'is-cv' }}
+        title={title}
+        meta={[{ name: 'theme-color', content: accentHex }]}
       />
       <SEO customDescription="Curriculum vitae of Yash Gadodia." />
 
-      <PageLayout>
-        <div className="cv">
+      <main className="cv-root">
+        <div className="cv-sheet">
           <div className="cv-actions no-print">
-            <Link className="button small" to="/me">
+            <Link className="cv-button secondary" to="/me">
               Back to About
             </Link>
-            <a className="button small" href={cvPdfPath} target="_blank" rel="noreferrer">
+            <button
+              className="cv-button"
+              type="button"
+              onClick={async () => {
+                try {
+                  if (document?.fonts?.ready) await document.fonts.ready
+                } catch (e) {
+                  // noop
+                }
+                window.print()
+              }}
+            >
               Download PDF
-            </a>
-            <button className="button small" type="button" onClick={() => window.print()}>
-              Print / Save as PDF
             </button>
+            <div className="cv-print-tip">
+              Tip: disable “Headers and footers” and enable “Background graphics”.
+            </div>
           </div>
 
           <header className="cv-header">
@@ -39,25 +57,34 @@ export default function CV() {
               Product Manager · AI Systems & Applied Product Thinking
             </div>
 
-            <div className="cv-contact">
-              <span>🇸🇬 Singapore</span>
-              <a href="mailto:pirsquare.yash@gmail.com">pirsquare.yash@gmail.com</a>
-              <a href="tel:+6581394225">+65 8139 4225</a>
-              <a href="https://yashgadodia.com">yashgadodia.com</a>
-              <a
-                href="https://www.linkedin.com/in/yashgadodia"
-                target="_blank"
-                rel="noreferrer"
-              >
-                linkedin.com/in/yashgadodia
-              </a>
-            </div>
+            <ul className="cv-contact" aria-label="Contact">
+              <li className="cv-contact-item">📍 Singapore</li>
+              <li className="cv-contact-item">
+                <a href="mailto:pirsquare.yash@gmail.com">Email</a>
+              </li>
+              <li className="cv-contact-item">
+                <a href="tel:+6581394225">Phone</a>
+              </li>
+              <li className="cv-contact-item">
+                <a href="https://yashgadodia.com" target="_blank" rel="noreferrer">
+                  Website
+                </a>
+              </li>
+              <li className="cv-contact-item">
+                <a
+                  href="https://www.linkedin.com/in/yashgadodia"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
 
             <p className="cv-summary">
-              Software engineer turned product manager. I build AI-powered systems that
-              solve real operational problems. Experienced in taking ambiguous problems
-              from discovery to execution, especially in ERP, internal tools, and
-              workflow-heavy environments.
+              Product manager (ex-software engineer) building AI-native products in
+              workflow-heavy environments; strong end-to-end ownership from discovery to
+              delivery and iteration.
             </p>
           </header>
 
@@ -69,25 +96,26 @@ export default function CV() {
                 <div className="cv-subsection">
                   <div className="cv-subsection-title">Product &amp; AI</div>
                   <ul>
-                    <li>AI product design, agent workflows, prompt design</li>
-                    <li>UX for complex systems, 0→1 discovery</li>
+                    <li>AI product design: agent workflows, prompt design, RAG patterns</li>
+                    <li>Module ownership: discovery → requirements → rollout → iteration</li>
+                    <li>UX for complex systems: workflows, approvals, edge cases</li>
                   </ul>
                 </div>
 
                 <div className="cv-subsection">
                   <div className="cv-subsection-title">Engineering</div>
                   <ul>
-                    <li>Python, TypeScript, Golang</li>
-                    <li>Supabase, Postgres</li>
-                    <li>Docker, Kubernetes</li>
+                    <li>Distributed systems, microservices, event-driven architecture</li>
+                    <li>Kubernetes, Docker, CI/CD, observability</li>
+                    <li>TypeScript / Python / Go, Postgres</li>
                   </ul>
                 </div>
 
                 <div className="cv-subsection">
-                  <div className="cv-subsection-title">Data &amp; Growth</div>
+                  <div className="cv-subsection-title">Growth &amp; Monetization</div>
                   <ul>
-                    <li>Funnel analysis, experimentation, metrics</li>
-                    <li>Mixpanel, GA4</li>
+                    <li>Funnel breakdowns, activation/retention, A/B testing</li>
+                    <li>Instrumentation &amp; analytics: Mixpanel, GA4</li>
                   </ul>
                 </div>
               </section>
@@ -114,6 +142,16 @@ export default function CV() {
                   <li>National Service: Top 1% of cohort (Combat Diver)</li>
                 </ul>
               </section>
+
+              <section className="cv-section cv-print-hide">
+                <h2>Fit</h2>
+                <ul>
+                  <li>Own product modules end-to-end, fast iteration loops</li>
+                  <li>High bar for interaction design in complex workflows</li>
+                  <li>Growth + monetization instincts without UX debt</li>
+                  <li>AI-first UX: guide users, reduce manual work</li>
+                </ul>
+              </section>
             </aside>
 
             <div className="cv-main">
@@ -121,63 +159,77 @@ export default function CV() {
                 <h2>Experience</h2>
 
                 <div className="cv-role">
-                  <div className="cv-role-title">Voltade — Founding Product Manager</div>
+                  <div className="cv-role-title">
+                    <VoltadeLink target="_blank" rel="noreferrer">
+                      Voltade
+                    </VoltadeLink>{' '}
+                    — Founding Product Manager
+                  </div>
                   <div className="cv-role-meta">Jul 2025 – Present | Singapore</div>
                   <div className="cv-role-subtitle">AI-powered ERP &amp; CRM for SMEs</div>
                   <ul>
                     <li>
-                      Leading product for Envoy CRM and Digital Brain, an AI-driven ERP
-                      platform used by SMEs in logistics, manufacturing, and operations.
+                      Own modules end-to-end across Envoy CRM and Digital Brain (AI-driven ERP)
+                      for SMEs in logistics, manufacturing, and operations.
                     </li>
                     <li>
-                      Owned end-to-end delivery for customer deployments including Yat
-                      Guan, Lincoln, and Presto.
+                      Delivered customer deployments (Yat Guan, Lincoln, Presto) from discovery
+                      through rollout and iteration.
                     </li>
                     <li>
-                      Translated messy real-world processes (ops, approvals, data flows)
-                      into structured, usable systems.
-                    </li>
-                    <li>
-                      Designed AI-assisted workflows to reduce manual work and guide users
-                      through complex tasks.
-                    </li>
-                    <li>
-                      Worked hands-on with engineers (TypeScript, Python) to ship features
-                      reliably under real constraints.
-                    </li>
-                    <li>
-                      Partnered closely with stakeholders to scope, prioritise, and deliver
-                      solutions aligned with business value.
+                      Translated messy real-world workflows (ops, approvals, data flows) into
+                      structured, usable systems.
                     </li>
                   </ul>
                 </div>
 
                 <div className="cv-role">
                   <div className="cv-role-title">
-                    Synthesis Partners — Lead Software Engineer (L3)
+                    <a href={schema?.url} target="_blank" rel="noreferrer">
+                      Synthesis Partners
+                    </a>{' '}
+                    — Lead Software Engineer (L3)
                   </div>
                   <div className="cv-role-meta">Jun 2024 – Jul 2025</div>
                   <div className="cv-role-subtitle">AI Research &amp; Consumer Insights</div>
+                  <div className="cv-role-links">
+                    <a href={schema?.url} target="_blank" rel="noreferrer">
+                      synthesis.partners
+                    </a>
+                  </div>
                   <ul>
                     <li>
-                      Built AI tools for insight extraction and cultural trend analysis
-                      using LLMs.
+                      Built AI tools for insight extraction and cultural trend analysis using
+                      LLMs, with a strong focus on usability for researchers.
                     </li>
                     <li>Designed and shipped RAG systems over 2M+ documents.</li>
                     <li>
-                      Worked closely with researchers to productionise models with strong UX
-                      and reliability.
+                      Worked with researchers to productionise models with strong UX,
+                      reliability, and sane failure modes.
                     </li>
                   </ul>
                 </div>
 
                 <div className="cv-role">
                   <div className="cv-role-title">
-                    Ninja Van — Senior Software Engineer (CTO’s Office)
+                    <a href={ninjaEasy?.url} target="_blank" rel="noreferrer">
+                      Ninja Van
+                    </a>{' '}
+                    — Senior Software Engineer (CTO’s Office)
                   </div>
                   <div className="cv-role-meta">May 2021 – Jun 2024</div>
                   <div className="cv-role-subtitle">
                     Platforms &amp; Developer Experience
+                  </div>
+                  <div className="cv-role-links">
+                    {ninjaEasy?.url && (
+                      <a href={ninjaEasy.url} target="_blank" rel="noreferrer">
+                        Ninja Easy
+                      </a>
+                    )}
+                    <a href={ninjaVanInternshipWriteup} target="_blank" rel="noreferrer">
+                      Internship write-up
+                    </a>
                   </div>
                   <ul>
                     <li>
@@ -189,55 +241,116 @@ export default function CV() {
                       notifications and messaging.
                     </li>
                     <li>
-                      Launched internal tools used by thousands of engineers for
-                      reliability and incident response.
-                    </li>
-                    <li>
-                      Delivered a voice-calling service handling 3M+ calls in under 6
-                      months.
+                      Shipped internal tooling and services used across engineering and ops
+                      (reliability tooling, voice calling at ~3M+ calls).
                     </li>
                   </ul>
                 </div>
 
                 <div className="cv-role">
-                  <div className="cv-role-title">The Bon Pet — Co-Founder</div>
+                  <div className="cv-role-title">
+                    <a href={theBonPet?.url} target="_blank" rel="noreferrer">
+                      The Bon Pet
+                    </a>{' '}
+                    — Co-Founder
+                  </div>
                   <div className="cv-role-meta">Sep 2024 – Present</div>
                   <div className="cv-role-subtitle">Consumer Brand (DTC)</div>
+                  <div className="cv-role-links">
+                    <a href={theBonPet?.url} target="_blank" rel="noreferrer">
+                      thebonpet.com
+                    </a>
+                  </div>
                   <ul>
                     <li>Built and scaled a consumer brand to ~10K MRR.</li>
                     <li>
                       Designed operational workflows across fulfilment, CRM, and customer
-                      experience.
+                      experience; hands-on across product, ops, and growth.
                     </li>
-                    <li>Hands-on across product, operations, and growth.</li>
+                  </ul>
+                </div>
+
+                <div className="cv-role">
+                  <div className="cv-role-title">
+                    <a href={afterclass?.url} target="_blank" rel="noreferrer">
+                      AfterClass
+                    </a>{' '}
+                    — Co-founder &amp; CTO
+                  </div>
+                  <div className="cv-role-meta">2024 | Singapore</div>
+                  <div className="cv-role-subtitle">Student platform</div>
+                  <div className="cv-role-links">
+                    {afterclass?.url && (
+                      <a href={afterclass.url} target="_blank" rel="noreferrer">
+                        afterclass.io
+                      </a>
+                    )}
+                    {afterclass?.sourceUrl && (
+                      <a href={afterclass.sourceUrl} target="_blank" rel="noreferrer">
+                        GitHub
+                      </a>
+                    )}
+                    {afterclass?.pitchDeckUrl && (
+                      <a href={afterclass.pitchDeckUrl} target="_blank" rel="noreferrer">
+                        Pitch deck
+                      </a>
+                    )}
+                  </div>
+                  <ul>
+                    <li>
+                      Owned product + engineering execution end-to-end as CTO in a small team,
+                      shipping fast with strong reliability basics.
+                    </li>
+                    <li>Scaled to 10k users and 4.5M page views in ~3 months.</li>
                   </ul>
                 </div>
               </section>
 
-              <section className="cv-section">
+              <section className="cv-section cv-print-hide">
                 <h2>Projects (Selected)</h2>
                 <ul>
                   <li>
-                    <strong>Vorank</strong> — AI-enabled SEO writing tool focused on
-                    usability and workflow efficiency.
+                    <strong>
+                      <a href={vorank?.url} target="_blank" rel="noreferrer">
+                        Vorank
+                      </a>
+                    </strong>{' '}
+                    — AI-enabled SEO writing tool focused on usability and workflow
+                    efficiency.
                   </li>
                   <li>
-                    <strong>AfterClass</strong> — Co-founded a student platform reaching
-                    10k users and 4.5M page views in 3 months.
+                    <strong>
+                      <a href={afterclass?.url} target="_blank" rel="noreferrer">
+                        AfterClass
+                      </a>
+                    </strong>{' '}
+                    — Co-founded a student platform reaching 10k users and 4.5M page views
+                    in 3 months.{' '}
+                    {afterclass?.pitchDeckUrl && (
+                      <a href={afterclass.pitchDeckUrl} target="_blank" rel="noreferrer">
+                        Pitch deck
+                      </a>
+                    )}
+                    {afterclass?.sourceUrl && (
+                      <>
+                        {' '}
+                        <a href={afterclass.sourceUrl} target="_blank" rel="noreferrer">
+                          GitHub
+                        </a>
+                      </>
+                    )}
                   </li>
                   <li>
-                    <strong>Live Commerce (Ninja Van)</strong> — Built internal tooling for
-                    live selling and order management.
+                    <strong>Live Commerce</strong> (<a href={ninjaEasy?.url} target="_blank" rel="noreferrer">Ninja Van</a>) — Built internal tooling for live selling and order management.
                   </li>
                 </ul>
               </section>
             </div>
           </div>
         </div>
-      </PageLayout>
+      </main>
     </>
   )
 }
 
-CV.Layout = Layout
-
+CV.Layout = CVLayout

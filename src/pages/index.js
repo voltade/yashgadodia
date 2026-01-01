@@ -36,27 +36,28 @@ export default function Index({ data }) {
             <div>
               <h1>Hi, I’m Yash.</h1>
               <p className="hero-description">
-                I'm a Software Engineer turned Product Manager. I love building things.
-                Currently Founding PM @ <VoltadeLink />, bringing the best of AI to SMEs.
+                I used to be a software engineer. Now I work as a PM and still stay close
+                to the build. These days I’m the founding PM at <VoltadeLink />, building
+                AI-assisted workflows for ops-heavy SMEs.
               </p>
               <p className="hero-proof-points-title">Past Work</p>
               <ul className="hero-proof-points">
                 <li>
                   <span className="hero-proof-point-header">Ninja Van</span>
                   <span className="hero-proof-point-body">
-                    Shipped products and internal tools used across last-mile operations.
+                    Built internal tooling for last-mile teams at scale.
                   </span>
                 </li>
                 <li>
                   <span className="hero-proof-point-header">The Bon Pet</span>
                   <span className="hero-proof-point-body">
-                    Built and scaled a consumer brand to $10k MRR from zero.
+                    Ran a small consumer brand from zero to $10k MRR.
                   </span>
                 </li>
                 <li>
                   <span className="hero-proof-point-header">AfterClass</span>
                   <span className="hero-proof-point-body">
-                    Co-founded a student platform still active with 40k users.
+                    Co-founded a student platform with ~40k users.
                   </span>
                 </li>
               </ul>
@@ -94,7 +95,7 @@ export default function Index({ data }) {
             title="Featured Projects"
             slug="/projects"
             buttonText="All Projects"
-            description="Products and tools I've built or contributed to."
+            description="Things I’ve shipped — products, tools, and experiments."
           />
 
           <div className="cards">
@@ -190,7 +191,7 @@ export default function Index({ data }) {
             title="Blog"
             slug="/blog"
             buttonText="All Posts"
-            description="Writing on AI products, systems design, and lessons from building."
+            description="Notes on product, AI, and building systems that hold up."
           />
           <Posts data={articles} />
         </section>

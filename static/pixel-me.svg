@@ -1,69 +1,208 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 600" role="img" aria-label="Stylized pixel portrait">
-  <title>Stylized pixel portrait</title>
-  
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Pixel portrait illustration">
+  <title>Pixel portrait illustration</title>
+
   <defs>
     <style>
-      .pixel-smooth { image-rendering: pixelated; }
+      .pixel {
+        shape-rendering: geometricPrecision;
+        image-rendering: auto;
+      }
     </style>
   </defs>
 
-  <!-- Head base -->
-  <rect x="160" y="80" width="192" height="200" fill="#D4A574" rx="12" class="pixel-smooth" />
-  
-  <!-- Hair (dark, styled) -->
-  <rect x="140" y="60" width="232" height="100" fill="#2C2420" rx="16" />
-  <rect x="160" y="45" width="192" height="50" fill="#1A1815" rx="8" />
-  
+  <!-- Hoodie (back/hood) -->
+  <g class="pixel">
+    <rect x="168" y="292" width="176" height="56" fill="#AEB3BB" />
+    <rect x="136" y="304" width="240" height="152" fill="#C8CCD2" />
+    <rect x="136" y="304" width="16" height="152" fill="#AEB3BB" />
+    <rect x="360" y="304" width="16" height="152" fill="#AEB3BB" />
+  </g>
+
+  <!-- Head / face base -->
+  <g class="pixel">
+    <!-- Face shape (slightly oval) -->
+    <rect x="192" y="96" width="128" height="16" fill="#C98B5F" />
+    <rect x="176" y="112" width="160" height="16" fill="#C98B5F" />
+    <rect x="168" y="128" width="176" height="88" fill="#C98B5F" />
+    <rect x="176" y="216" width="160" height="32" fill="#C98B5F" />
+    <rect x="192" y="248" width="128" height="24" fill="#C98B5F" />
+    <rect x="216" y="272" width="80" height="8" fill="#C98B5F" />
+
+    <!-- Face shading -->
+    <rect x="176" y="144" width="8" height="88" fill="#B8794E" opacity="0.45" />
+    <rect x="328" y="144" width="8" height="88" fill="#B8794E" opacity="0.45" />
+    <rect x="200" y="256" width="112" height="8" fill="#B8794E" opacity="0.35" />
+  </g>
+
   <!-- Ears -->
-  <rect x="130" y="140" width="30" height="50" fill="#D4A574" />
-  <rect x="352" y="140" width="30" height="50" fill="#D4A574" />
-  <rect x="138" y="150" width="14" height="30" fill="#C48960" />
-  <rect x="360" y="150" width="14" height="30" fill="#C48960" />
-  
+  <g class="pixel">
+    <rect x="144" y="152" width="24" height="48" fill="#C98B5F" />
+    <rect x="344" y="152" width="24" height="48" fill="#C98B5F" />
+    <rect x="152" y="160" width="8" height="32" fill="#B8794E" opacity="0.6" />
+    <rect x="352" y="160" width="8" height="32" fill="#B8794E" opacity="0.6" />
+  </g>
+
+  <!-- Hair (messy/wavy, short sides) -->
+  <g class="pixel">
+    <!-- Main mass -->
+    <rect x="176" y="72" width="160" height="16" fill="#1D1A19" />
+    <rect x="168" y="88" width="176" height="16" fill="#1D1A19" />
+    <rect x="160" y="104" width="192" height="32" fill="#1D1A19" />
+    <rect x="184" y="56" width="144" height="16" fill="#1D1A19" />
+    <rect x="208" y="48" width="96" height="8" fill="#151312" />
+    <rect x="192" y="56" width="128" height="8" fill="#151312" opacity="0.7" />
+
+    <!-- Side fades -->
+    <rect x="168" y="104" width="24" height="56" fill="#1D1A19" />
+    <rect x="320" y="104" width="24" height="56" fill="#1D1A19" />
+
+    <!-- Fringe / curls -->
+    <rect x="184" y="120" width="16" height="24" fill="#1D1A19" />
+    <rect x="200" y="112" width="24" height="40" fill="#1D1A19" />
+    <rect x="224" y="120" width="24" height="24" fill="#1D1A19" />
+    <rect x="248" y="112" width="24" height="48" fill="#1D1A19" />
+    <rect x="272" y="120" width="24" height="24" fill="#1D1A19" />
+    <rect x="296" y="128" width="24" height="16" fill="#1D1A19" />
+
+    <!-- Stray lock -->
+    <rect x="248" y="152" width="8" height="16" fill="#1D1A19" />
+    <rect x="240" y="160" width="8" height="8" fill="#1D1A19" />
+
+    <!-- Highlight -->
+    <rect x="200" y="80" width="120" height="8" fill="#2A2422" opacity="0.55" />
+    <rect x="216" y="88" width="88" height="8" fill="#2A2422" opacity="0.4" />
+  </g>
+
+  <!-- Brows -->
+  <g class="pixel">
+    <rect x="200" y="152" width="24" height="8" fill="#151312" />
+    <rect x="224" y="156" width="24" height="8" fill="#151312" />
+    <rect x="264" y="156" width="24" height="8" fill="#151312" />
+    <rect x="288" y="152" width="24" height="8" fill="#151312" />
+  </g>
+
   <!-- Eyes -->
-  <rect x="200" y="160" width="28" height="32" fill="#FFFFFF" />
-  <rect x="284" y="160" width="28" height="32" fill="#FFFFFF" />
-  <rect x="208" y="170" width="16" height="18" fill="#1A1815" />
-  <rect x="292" y="170" width="16" height="18" fill="#1A1815" />
-  <rect x="212" y="172" width="6" height="6" fill="#FFFFFF" />
-  <rect x="296" y="172" width="6" height="6" fill="#FFFFFF" />
-  
-  <!-- Eyebrows -->
-  <rect x="200" y="148" width="28" height="6" fill="#1A1815" />
-  <rect x="284" y="148" width="28" height="6" fill="#1A1815" />
-  
+  <g class="pixel">
+    <!-- Left eye -->
+    <rect x="212" y="184" width="32" height="16" fill="#F7F8FA" />
+    <rect x="224" y="188" width="8" height="8" fill="#0D0D11" />
+    <rect x="228" y="190" width="4" height="4" fill="#F7F8FA" opacity="0.9" />
+    <rect x="212" y="184" width="32" height="4" fill="#151312" opacity="0.16" />
+    <rect x="212" y="196" width="32" height="4" fill="#151312" opacity="0.1" />
+
+    <!-- Right eye -->
+    <rect x="268" y="184" width="32" height="16" fill="#F7F8FA" />
+    <rect x="280" y="188" width="8" height="8" fill="#0D0D11" />
+    <rect x="284" y="190" width="4" height="4" fill="#F7F8FA" opacity="0.9" />
+    <rect x="268" y="184" width="32" height="4" fill="#151312" opacity="0.16" />
+    <rect x="268" y="196" width="32" height="4" fill="#151312" opacity="0.1" />
+
+    <!-- Smile lines -->
+    <rect x="200" y="200" width="8" height="4" fill="#151312" opacity="0.12" />
+    <rect x="304" y="200" width="8" height="4" fill="#151312" opacity="0.12" />
+  </g>
+
   <!-- Nose -->
-  <rect x="248" y="195" width="16" height="24" fill="#C48960" />
-  <rect x="250" y="215" width="12" height="8" fill="#B8764A" />
-  
-  <!-- Mouth (smile) -->
-  <rect x="200" y="235" width="112" height="12" fill="none" stroke="#1A1815" stroke-width="4" />
-  <path d="M 200 235 Q 256 250 312 235" stroke="#1A1815" stroke-width="4" fill="none" stroke-linecap="round" />
-  
-  <!-- Cheeks (blush) -->
-  <circle cx="160" cy="215" r="18" fill="#E8A89C" opacity="0.4" />
-  <circle cx="352" cy="215" r="18" fill="#E8A89C" opacity="0.4" />
-  
+  <g class="pixel">
+    <rect x="252" y="200" width="8" height="24" fill="#B8794E" opacity="0.6" />
+    <rect x="248" y="224" width="16" height="8" fill="#B8794E" opacity="0.35" />
+    <rect x="248" y="224" width="8" height="8" fill="#0D0D11" opacity="0.08" />
+    <rect x="256" y="224" width="8" height="8" fill="#0D0D11" opacity="0.05" />
+
+    <!-- Nose stud -->
+    <rect x="244" y="228" width="4" height="4" fill="#F7F8FA" opacity="0.9" />
+    <rect x="244" y="232" width="4" height="4" fill="#0D0D11" opacity="0.12" />
+  </g>
+
+  <!-- Stubble (subtle) -->
+  <g class="pixel" opacity="0.14">
+    <!-- Cheeks -->
+    <rect x="192" y="240" width="8" height="8" fill="#151312" />
+    <rect x="312" y="240" width="8" height="8" fill="#151312" />
+    <rect x="184" y="248" width="8" height="8" fill="#151312" />
+    <rect x="320" y="248" width="8" height="8" fill="#151312" />
+    <rect x="192" y="256" width="8" height="8" fill="#151312" />
+    <rect x="312" y="256" width="8" height="8" fill="#151312" />
+    <rect x="200" y="264" width="8" height="8" fill="#151312" />
+    <rect x="304" y="264" width="8" height="8" fill="#151312" />
+
+    <!-- Chin -->
+    <rect x="224" y="272" width="8" height="8" fill="#151312" />
+    <rect x="240" y="272" width="8" height="8" fill="#151312" />
+    <rect x="256" y="272" width="8" height="8" fill="#151312" />
+    <rect x="272" y="272" width="8" height="8" fill="#151312" />
+    <rect x="288" y="272" width="8" height="8" fill="#151312" />
+  </g>
+
+  <!-- Facial hair (moustache) -->
+  <g class="pixel" opacity="0.24">
+    <rect x="224" y="232" width="64" height="8" fill="#151312" />
+  </g>
+
+  <!-- Smile (wide, toothy) -->
+  <g class="pixel">
+    <!-- Corners -->
+    <rect x="208" y="240" width="8" height="8" fill="#0D0D11" />
+    <rect x="296" y="240" width="8" height="8" fill="#0D0D11" />
+
+    <!-- Upper outline -->
+    <rect x="216" y="240" width="80" height="4" fill="#0D0D11" />
+
+    <!-- Teeth -->
+    <rect x="216" y="244" width="80" height="8" fill="#F7F8FA" />
+    <rect x="232" y="244" width="2" height="8" fill="#0D0D11" opacity="0.12" />
+    <rect x="256" y="244" width="2" height="8" fill="#0D0D11" opacity="0.12" />
+    <rect x="280" y="244" width="2" height="8" fill="#0D0D11" opacity="0.12" />
+
+    <!-- Mouth shadow -->
+    <rect x="224" y="252" width="64" height="4" fill="#7A2C2C" opacity="0.9" />
+
+    <!-- Bottom outline -->
+    <rect x="224" y="256" width="64" height="4" fill="#0D0D11" />
+    <rect x="216" y="252" width="8" height="8" fill="#0D0D11" />
+    <rect x="288" y="252" width="8" height="8" fill="#0D0D11" />
+  </g>
+
   <!-- Neck -->
-  <rect x="200" y="280" width="112" height="24" fill="#D4A574" />
-  
-  <!-- Shirt/Shoulders -->
-  <rect x="120" y="304" width="272" height="140" fill="#8B5A8C" rx="8" />
-  
-  <!-- Shirt design accent -->
-  <rect x="180" y="330" width="152" height="90" fill="#6B3A6B" rx="4" />
-  <rect x="200" y="350" width="112" height="50" fill="#A85FA0" opacity="0.6" />
-  
-  <!-- Arms -->
-  <rect x="80" y="320" width="40" height="100" fill="#D4A574" rx="6" />
-  <rect x="392" y="320" width="40" height="100" fill="#D4A574" rx="6" />
-  
-  <!-- Hands (subtle) -->
-  <rect x="70" y="420" width="50" height="40" fill="#D4A574" rx="8" />
-  <rect x="392" y="420" width="50" height="40" fill="#D4A574" rx="8" />
-  
-  <!-- Bottom text -->
-  <text x="256" y="570" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#8B5A8C" text-anchor="middle" opacity="0.7">
-    generated with AI
-  </text>
+  <g class="pixel">
+    <rect x="208" y="280" width="96" height="24" fill="#C98B5F" />
+    <rect x="208" y="296" width="96" height="8" fill="#B8794E" opacity="0.45" />
+  </g>
+
+  <!-- Hoodie (front) -->
+  <g class="pixel">
+    <rect x="120" y="304" width="272" height="152" fill="#C8CCD2" />
+    <rect x="120" y="304" width="16" height="152" fill="#AEB3BB" />
+    <rect x="376" y="304" width="16" height="152" fill="#AEB3BB" />
+
+    <!-- Collar -->
+    <rect x="192" y="304" width="128" height="24" fill="#D7DAE0" />
+    <rect x="200" y="312" width="112" height="16" fill="#F0F1F3" />
+
+    <!-- Drawstrings (red) -->
+    <rect x="236" y="320" width="8" height="64" fill="#D33A3A" />
+    <rect x="268" y="320" width="8" height="64" fill="#D33A3A" />
+    <rect x="232" y="312" width="16" height="8" fill="#D33A3A" />
+    <rect x="264" y="312" width="16" height="8" fill="#D33A3A" />
+    <rect x="232" y="384" width="16" height="8" fill="#D33A3A" opacity="0.85" />
+    <rect x="264" y="384" width="16" height="8" fill="#D33A3A" opacity="0.85" />
+
+    <!-- Chest patch -->
+    <rect x="192" y="344" width="128" height="88" fill="#AEB3BB" />
+    <rect x="208" y="360" width="96" height="56" fill="#D7DAE0" opacity="0.85" />
+  </g>
+
+  <!-- Sleeves + hands -->
+  <g class="pixel">
+    <rect x="80" y="320" width="56" height="112" fill="#AEB3BB" />
+    <rect x="376" y="320" width="56" height="112" fill="#AEB3BB" />
+    <rect x="88" y="328" width="40" height="96" fill="#C8CCD2" />
+    <rect x="384" y="328" width="40" height="96" fill="#C8CCD2" />
+
+    <rect x="72" y="424" width="64" height="40" fill="#C98B5F" />
+    <rect x="376" y="424" width="64" height="40" fill="#C98B5F" />
+    <rect x="72" y="456" width="64" height="8" fill="#B8794E" opacity="0.35" />
+    <rect x="376" y="456" width="64" height="8" fill="#B8794E" opacity="0.35" />
+  </g>
+
 </svg>

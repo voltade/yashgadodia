@@ -20,27 +20,25 @@ export default function Me() {
       <PageLayout>
         <Hero
           title={title}
-          description="I work on products where the problem isn’t clear and the stakes are real."
+          description="I build products in messy, real-world workflows."
         />
         <div className="page-article">
           <p>
-            I’m Yash, based in Singapore. I work as a product manager and builder, usually
-            close to implementation.
+            I’m Yash, based in Singapore. I work as a product manager and I still build —
+            close enough to the implementation that constraints stay real.
           </p>
           <p>
-            I’ve worked across logistics, internal tools, and AI-driven products, usually in
-            environments where systems are messy, ownership is unclear, and progress depends
-            on good judgment more than perfect plans.
+            I’ve worked across logistics, internal tooling, and AI-driven products. I like
+            work where the real problem isn’t obvious from the first meeting, and the best
+            path is a few tight build → learn → fix loops.
           </p>
           <p>
-            I’ve spent the last few years working on systems that teams rely on day to day,
-            from internal tools to customer-facing platforms. Most of my work sits in the
-            space between product, engineering, and operations, where clarity matters more
-            than polish.
+            Most of my day-to-day sits between product, engineering, and operations:
+            approvals, edge cases, weird data, and the parts of “simple” workflows that make
+            teams lose hours.
           </p>
           <p>
-            This site is a snapshot of how I think, what I’ve worked on, and the kinds of
-            problems I’m drawn to.
+            This site is a snapshot of what I’ve built and what I’m learning.
           </p>
 
           <h2>Work</h2>
@@ -54,9 +52,9 @@ export default function Me() {
             chat-first CRM and a modular platform used to build custom internal systems.
           </p>
           <p>
-            The work often involves unclear requirements, time pressure, and trade-offs
-            between speed and reliability. I focus on shaping problems early, reducing
-            ambiguity, and helping teams ship without creating long-term mess.
+            The work is full of trade-offs: shipping fast without creating a support nightmare
+            later. I care a lot about getting the workflow right (not just the UI) and keeping
+            systems understandable as they grow.
           </p>
           <p>
             <strong>Ninja Van</strong>
@@ -74,6 +72,26 @@ export default function Me() {
             the cost of poor decisions very real — from fulfilment issues to customer trust.
           </p>
 
+          <h2>How I think about product</h2>
+          <ul>
+            <li>
+              <strong>Reliability beats cleverness.</strong> Users forgive missing features.
+              They don’t forgive broken workflows.
+            </li>
+            <li>
+              <strong>AI should reduce effort, not add novelty.</strong> If users need to
+              “learn the model” to get value, the UX is doing too much work.
+            </li>
+            <li>
+              <strong>Speed &gt; polish in early stages.</strong> I bias toward shipping
+              learning loops quickly, then refining once real usage patterns emerge.
+            </li>
+            <li>
+              <strong>Shared context matters more than perfect specs.</strong> If everyone
+              knows the goal and the constraints, execution gets easier.
+            </li>
+          </ul>
+
           <h2>How I Work</h2>
           <p>
             I’m most effective when problems are still fuzzy and there’s no obvious “right”
@@ -81,8 +99,8 @@ export default function Me() {
           </p>
           <ul>
             <li>
-              I prefer clarity over cleverness. If something is hard to explain, it usually
-              isn’t ready.
+              I prefer clarity over cleverness. If it’s hard to explain, it’s probably not
+              ready.
             </li>
             <li>
               I write to think: decisions, assumptions, and trade-offs go down early.
@@ -91,8 +109,7 @@ export default function Me() {
               I stay close to implementation so constraints stay real, not theoretical.
             </li>
             <li>
-              I care about operability. If something is painful to support, it isn’t
-              finished.
+              I care about operability. If it’s painful to support, it isn’t finished.
             </li>
           </ul>
 
@@ -107,9 +124,9 @@ export default function Me() {
 
           <h2>Now</h2>
           <p>
-            Right now, I’m focused on building platform foundations at <VoltadeLink /> and
-            shipping real work end to end — from discovery to rollout — while keeping
-            systems stable and understandable.
+            Right now, I’m building platform foundations at <VoltadeLink /> and shipping work
+            end to end — from discovery to rollout — while keeping systems stable and
+            understandable.
           </p>
 
           <h2>Contact</h2>

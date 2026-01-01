@@ -17,8 +17,8 @@ export default function Blog({ data }) {
 
   const description = (
     <div>
-      Writing on product strategy, systems thinking, and building software that
-      ships. Browse by <Link to="/topics">topic</Link>.
+      Notes on product, AI, and building software that survives contact with
+      reality. Browse by <Link to="/topics">topic</Link>.
     </div>
   )
 
