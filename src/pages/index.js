@@ -7,15 +7,12 @@ import { Layout } from '../components/Layout'
 import { Posts } from '../components/Posts'
 import { SEO } from '../components/SEO'
 import { Heading } from '../components/Heading'
-import { Hero } from '../components/Hero'
+import { ProfileHero } from '../components/ProfileHero'
 import { PageLayout } from '../components/PageLayout'
 import { projectsList } from '../data/projectsList'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 import { VoltadeLink } from '../components/VoltadeLink'
-import newMoon from '../assets/nav-blog.png'
-import floppy from '../assets/nav-floppy.png'
-import emailIcon from '../assets/nav-email.svg'
 
 export default function Index({ data }) {
   const latestArticles = data.latestArticles.edges
@@ -31,64 +28,45 @@ export default function Index({ data }) {
       <SEO />
 
       <PageLayout>
-        <Hero type="index">
-          <div className="hero-wrapper">
-            <div>
-              <h1>Hi, I’m Yash.</h1>
-              <p className="hero-description">
-                I used to be a software engineer. Now I work as a PM and still stay close
-                to the build. These days I’m the founding PM at <VoltadeLink />, building
-                AI-assisted workflows for ops-heavy SMEs.
-              </p>
-              <p className="hero-proof-points-title">Past Work</p>
-              <ul className="hero-proof-points">
-                <li>
-                  <span className="hero-proof-point-header">Ninja Van</span>
-                  <span className="hero-proof-point-body">
-                    Built internal tooling for last-mile teams at scale.
-                  </span>
-                </li>
-                <li>
-                  <span className="hero-proof-point-header">The Bon Pet</span>
-                  <span className="hero-proof-point-body">
-                    Ran a small consumer brand from zero to $10k MRR.
-                  </span>
-                </li>
-                <li>
-                  <span className="hero-proof-point-header">AfterClass</span>
-                  <span className="hero-proof-point-body">
-                    Co-founded a student platform with ~40k users.
-                  </span>
-                </li>
-              </ul>
-              <p
-                className="flex-wrap flex-align-center gap"
-                style={{ marginBottom: 0 }}
-              >
-                <Link className="button" to="/projects">
-                  <img src={floppy} alt="Projects" /> View Projects
-                </Link>
-                <Link className="button" to="/me">
-                  <img src={newMoon} alt="About" /> About Me
-                </Link>
-                <a
-                  href="mailto:pirsquare.yash@gmail.com"
-                  className="button"
-                  type="button"
-                >
-                  <img src={emailIcon} alt="Email" /> Email Me
-                </a>
-              </p>
+        <ProfileHero
+          kicker="AI Product • Agents • Workflow Design"
+          headline="Hi, I’m Yash."
+          lede={
+            <>
+              I build AI-assisted products for ops-heavy teams — agent workflows, interfaces,
+              and systems that stay reliable in the messy real world.
+            </>
+          }
+          now={
+            <>
+              <strong>Currently</strong>: Founding PM at <VoltadeLink />, building
+              AI-assisted workflows for ops-heavy SMEs.
+            </>
+          }
+          highlightsTitle="Selected work"
+          highlights={[
+            {
+              title: 'Ninja Van',
+              body: 'Built internal tooling for last-mile teams at scale.',
+            },
+            {
+              title: 'The Bon Pet',
+              body: 'Ran a small consumer brand from zero to $10k MRR.',
+            },
+            {
+              title: 'AfterClass',
+              body: 'Co-founded a student platform with ~40k users.',
+            },
+          ]}
+          ctas={
+            <div className="hero-cta hero-cta-single">
+              <a href="mailto:pirsquare.yash@gmail.com" className="button">
+                Email Me
+              </a>
             </div>
-            <div className="hero-image-container">
-              <img
-                src="/pixel-me.svg"
-                className="hero-image"
-                alt="Portrait illustration"
-              />
-            </div>
-          </div>
-        </Hero>
+          }
+          image={{ src: '/pixel-me.svg', alt: 'Portrait illustration' }}
+        />
 
         <section className="section-index">
           <Heading
@@ -137,48 +115,50 @@ export default function Index({ data }) {
                       <div className="card-header">{project.name}</div>
                     )}
                     <p>{project.tagline}</p>
-                    {project.focus && (
-                      <div className="card-focus">
-                        <div className="card-focus-label">Focus</div>
-                        <div className="card-focus-body">{project.focus}</div>
+                    <div className="card-footer">
+                      {project.focus && (
+                        <div className="card-focus">
+                          <div className="card-focus-label">Focus</div>
+                          <div className="card-focus-body">{project.focus}</div>
+                        </div>
+                      )}
+                      <div className="card-links">
+                        {project.writeup && (
+                          <Link className="button small" to={project.writeup}>
+                            Article
+                          </Link>
+                        )}
+                        {project.pitchDeckUrl && (
+                          <a
+                            className="button small"
+                            href={withPrefix(project.pitchDeckUrl)}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Pitch deck
+                          </a>
+                        )}
+                        {project.url && (
+                          <a
+                            className="button small"
+                            href={project.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Visit
+                          </a>
+                        )}
+                        {project.sourceUrl && (
+                          <a
+                            className="button small"
+                            href={project.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Code
+                          </a>
+                        )}
                       </div>
-                    )}
-                    <div className="card-links">
-                      {project.writeup && (
-                        <Link className="button small" to={project.writeup}>
-                          Article
-                        </Link>
-                      )}
-                      {project.pitchDeckUrl && (
-                        <a
-                          className="button small"
-                          href={withPrefix(project.pitchDeckUrl)}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Pitch deck
-                        </a>
-                      )}
-                      {project.url && (
-                        <a
-                          className="button small"
-                          href={project.url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Visit
-                        </a>
-                      )}
-                      {project.sourceUrl && (
-                        <a
-                          className="button small"
-                          href={project.sourceUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Code
-                        </a>
-                      )}
                     </div>
                   </div>
                 )
@@ -194,6 +174,15 @@ export default function Index({ data }) {
             description="Notes on product, AI, and building systems that hold up."
           />
           <Posts data={articles} />
+        </section>
+
+        <section className="section-index landing-secondary-cta">
+          <p className="landing-secondary-cta-text">
+            Looking for the full CV?{' '}
+            <Link to="/cv" className="landing-secondary-cta-link">
+              View CV
+            </Link>
+          </p>
         </section>
       </PageLayout>
     </>

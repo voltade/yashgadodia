@@ -1,29 +1,26 @@
 :root {
-  --string: light-dark(#728400, #92d192);
-  --variable: light-dark(#0e2a35, white);
-  --property: light-dark(#697a82, #b3b9c5);
-  --number: light-dark(#b54110, #fca369);
-  --operator: light-dark(#785200, #ac8d58);
-  --punctuation: light-dark(#586e75, #c7cdd7);
-  --comment: light-dark(#657b83, #777c85);
-  --function: light-dark(#1a9489, #76d4d6);
-  --keyword: light-dark(#c32c75, #ffeea6);
-  --attribute: light-dark(#916f14, #ffd479);
-  --class: light-dark(#c32c75, #e1a6f2);
-  --tag: light-dark(#268bd2, #6ab0f3);
-  --error: light-dark(#dc322f, #f2777a);
-  --terminal-bar: light-dark(var(--gray-1), var(--gray-9));
-  --terminal-accent: light-dark(white, var(--gray-6));
+  --string: #728400;
+  --variable: #0e2a35;
+  --property: #697a82;
+  --number: #b54110;
+  --operator: #785200;
+  --punctuation: #586e75;
+  --comment: #657b83;
+  --function: #1a9489;
+  --keyword: #c32c75;
+  --attribute: #916f14;
+  --class: #c32c75;
+  --tag: #268bd2;
+  --error: #dc322f;
+  --terminal-bar: var(--gray-1);
+  --terminal-accent: white;
 
-  --color-background-inline-code: light-dark(
-    rgba(0, 0, 0, 0.05),
-    rgba(255, 255, 255, 0.08)
-  );
-  --color-background-code-block: light-dark(var(--beige-1), var(--gray-8));
-  --color-border-code-block: light-dark(var(--beige-3), var(--gray-6));
-  --color-background-terminal: light-dark(white, var(--gray-11));
-  --color-background-filename: light-dark(var(--beige-2), var(--gray-7));
-  --color-border-terminal: light-dark(var(--gray-1), var(--color-border));
+  --color-background-inline-code: rgba(0, 0, 0, 0.05);
+  --color-background-code-block: var(--beige-1);
+  --color-border-code-block: var(--beige-3);
+  --color-background-terminal: white;
+  --color-background-filename: var(--beige-2);
+  --color-border-terminal: var(--gray-1);
 }
 
 /* Code blocks */
@@ -33,6 +30,9 @@ code {
 
 pre {
   border: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 code[class*='language-'],
@@ -68,6 +68,11 @@ pre[class*='language-'] {
   }
 }
 
+/* Prevent code blocks from forcing page-level horizontal overflow */
+.gatsby-highlight {
+  max-width: 100%;
+}
+
 /* Inline code */
 :not(pre) > code[class*='language-'] {
   background: var(--color-background-inline-code);
@@ -94,9 +99,19 @@ code.language-shell::before {
 }
 
 pre.language-text {
-  background: transparent;
-  padding: 0;
-  border-color: transparent;
+  background: var(--color-background-code-block);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+}
+
+code.language-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* Terminal */
@@ -172,15 +187,20 @@ pre.language-terminal::after {
 /* Highlight line */
 
 .gatsby-highlight-code-line {
-  background-color: light-dark(
-    rgb(116, 207, 116, 0.15),
-    rgb(116, 207, 116, 0.1)
-  );
+  background-color: rgb(116, 207, 116, 0.15);
   display: block;
   margin-left: -1.5rem;
   margin-right: -1.5rem;
   padding-left: calc(1rem + 4px);
   border-left: 4px solid #74cf74;
+}
+
+@media screen and (max-width: 799px) {
+  .gatsby-highlight-code-line {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: calc(1rem + 4px);
+  }
 }
 
 .gatsby-highlight-code-line .gatsby-highlight-code-line {

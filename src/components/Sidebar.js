@@ -1,24 +1,16 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import floppy from '../assets/floppylogo.png'
 import blog from '../assets/nav-blog.png'
 import projects from '../assets/nav-projects.png'
-import { Moon } from '../assets/Moon'
-import { Sun } from '../assets/Sun'
 import { ColorDropdown } from './ColorDropdown'
 
-export const Sidebar = ({
-  theme,
-  handleUpdateTheme,
-  currentColor,
-  setCurrentColor,
-}) => {
+export const Sidebar = ({ currentColor, setCurrentColor }) => {
   const links = [
     { url: '/blog', label: 'Blog', image: blog },
     { url: '/projects', label: 'Projects', image: projects },
-    { url: '/me', label: 'About Me', image: floppy },
-    { url: '/notes', label: 'Writing', image: blog },
+    { url: '/writing', label: 'Writing', image: blog },
+    { url: '/notes', label: 'Notes', image: blog },
   ]
 
   return (
@@ -30,43 +22,20 @@ export const Sidebar = ({
               <img
                 src="/logo.png"
                 className="navbar-logo"
-                alt="yashgadodia.com"
-                title="yashgadodia.com"
+                alt="Yash Gadodia"
+                title="Yash Gadodia"
                 height="16"
                 width="16"
               />
             </span>
-            <span className="site-name">yashgadodia.com</span>
+            <span className="site-name">Yash Gadodia</span>
           </Link>
           <div className="flex-align-center">
             <ColorDropdown
               currentColor={currentColor}
               setCurrentColor={setCurrentColor}
             />
-            <div className="tooltip-container">
-              <button
-                className="navbar-button"
-                onClick={() => {
-                  const newTheme = theme === 'dark' ? 'light' : 'dark'
-
-                  handleUpdateTheme(newTheme)
-                }}
-              >
-                {theme === 'dark' ? <Sun /> : <Moon />}
-              </button>
-              <div className="tooltip">Theme</div>
-            </div>
           </div>
-        </div>
-      </section>
-
-      <section className="sidebar-section">
-        <h2>About Me</h2>
-        <div className="sidebar-content">
-          <p>
-            I’m <Link to="/me">Yash</Link>. I am a Software Engineer turned Product Manager.
-            I like to build things.
-          </p>
         </div>
       </section>
 

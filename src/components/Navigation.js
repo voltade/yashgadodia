@@ -3,32 +3,28 @@ import { Link } from 'gatsby'
 import { SocialIcon } from 'react-social-icons'
 import { useLocation } from '@reach/router'
 
-import floppy from '../assets/floppylogo.png'
 import blog from '../assets/nav-blog.png'
 import projects from '../assets/nav-projects.png'
-import { Moon } from '../assets/Moon'
-import { Sun } from '../assets/Sun'
 import { Menu } from '../assets/Menu'
 import { Close } from '../assets/Close'
 import { Searchbar } from './Searchbar'
 import { ColorDropdown } from './ColorDropdown'
+import { BookOpen } from '../assets/BookOpen'
 
 const links = [
-  { url: '/blog', label: 'Blog', image: projects },
+  { url: '/blog', label: 'Blog', image: blog },
   { url: '/projects', label: 'Projects', image: projects },
-  { url: '/me', label: 'About Me', image: floppy },
-  { url: '/notes', label: 'Writing', image: blog },
+  { url: '/writing', label: 'Writing', image: blog },
+  { url: '/notes', label: 'Notes', image: blog },
 ]
 
 const socialLinks = [
   { url: 'https://www.linkedin.com/in/yashgadodia' },
   { url: 'https://open.spotify.com/search/yash%20gadodia' },
-  { url: 'https://www.goodreads.com/user/show/59594250-yash-gadodia' },
+  { url: 'https://www.goodreads.com/user/show/59594250-yash-gadodia', type: 'goodreads' },
 ]
 
 export const Navigation = ({
-  handleUpdateTheme,
-  theme,
   currentColor,
   setCurrentColor,
 }) => {
@@ -58,19 +54,21 @@ export const Navigation = ({
               <img
                 src="/logo.png"
                 className="navbar-logo"
-                alt="yashgadodia.com"
-                title="yashgadodia.com"
+                alt="Yash Gadodia"
+                title="Yash Gadodia"
                 height="16"
                 width="16"
               />
             </span>
-            <span className="site-name">yashgadodia.com</span>
+            <span className="site-name">Yash Gadodia</span>
           </Link>
         </div>
       </div>
       <div className="navbar-container">
         <section className="navbar-section navbar-section-search">
-          {!currentPath.includes('blog') && !currentPath.includes('notes') && (
+          {!currentPath.includes('blog') &&
+            !currentPath.includes('notes') &&
+            !currentPath.includes('writing') && (
             <Searchbar
               isLocal={false}
               query={query}
@@ -86,7 +84,9 @@ export const Navigation = ({
             className={`navbar-button nav-menu-button ${
               navOpen ? 'active' : ''
             }`}
+            type="button"
             onClick={handleToggleMobileNav}
+            aria-label={navOpen ? 'Close menu' : 'Open menu'}
           >
             {navOpen ? <Close /> : <Menu />}
           </button>
@@ -108,29 +108,30 @@ export const Navigation = ({
               currentColor={currentColor}
               setCurrentColor={setCurrentColor}
             />
-            <div className="tooltip-container">
-              <button
-                className="navbar-button"
-                onClick={() => {
-                  const newTheme = theme === 'dark' ? 'light' : 'dark'
-
-                  handleUpdateTheme(newTheme)
-                }}
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun /> : <Moon />}
-              </button>
-              <div className="tooltip">Theme</div>
-            </div>
             {socialLinks.map((link) => (
-              <SocialIcon
-                target="_blank"
-                key={link.url}
-                url={link.url}
-                fgColor="currentColor"
-                bgColor="transparent"
-                className="navbar-icon"
-              />
+              link.type === 'goodreads' ? (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="navbar-icon custom-social-icon"
+                  aria-label="Goodreads"
+                  title="Goodreads"
+                >
+                  <BookOpen />
+                </a>
+              ) : (
+                <SocialIcon
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={link.url}
+                  url={link.url}
+                  fgColor="currentColor"
+                  bgColor="transparent"
+                  className="navbar-icon"
+                />
+              )
             ))}
           </nav>
         </section>

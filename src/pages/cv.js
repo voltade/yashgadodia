@@ -35,30 +35,33 @@ export default function CV() {
       />
       <SEO customDescription="Curriculum vitae of Yash Gadodia." />
 
-      <main className="cv-root">
-        <div className="cv-sheet">
-          <div className="cv-actions no-print">
-            <Link className="cv-button secondary" to="/me">
-              Back to About
-            </Link>
-            <button
-              className="cv-button"
-              type="button"
-              onClick={async () => {
+	      <main className="cv-root">
+	        <div className="cv-sheet">
+	          <div className="cv-actions no-print">
+	            <Link className="cv-button secondary" to="/me">
+	              Back to About
+	            </Link>
+	            <a className="cv-button secondary" href="/cv.pdf" download>
+	              Download PDF
+	            </a>
+	            <button
+	              className="cv-button"
+	              type="button"
+	              onClick={async () => {
                 try {
                   if (document?.fonts?.ready) await document.fonts.ready
                 } catch (e) {
                   // noop
                 }
-                window.print()
-              }}
-            >
-              Download PDF
-            </button>
-            <div className="cv-print-tip">
-              Tip: disable “Headers and footers” and enable “Background graphics”.
-            </div>
-          </div>
+	                window.print()
+	              }}
+	            >
+	              Print / Save PDF
+	            </button>
+	            <div className="cv-print-tip">
+	              Tip: disable “Headers and footers” and enable “Background graphics”.
+	            </div>
+	          </div>
 
           <header className="cv-header">
             <h1 className="cv-name">Yash Gadodia</h1>
