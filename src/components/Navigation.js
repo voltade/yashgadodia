@@ -3,8 +3,6 @@ import { Link } from 'gatsby'
 import { SocialIcon } from 'react-social-icons'
 import { useLocation } from '@reach/router'
 
-import blog from '../assets/nav-blog.png'
-import projects from '../assets/nav-projects.png'
 import { Menu } from '../assets/Menu'
 import { Close } from '../assets/Close'
 import { Searchbar } from './Searchbar'
@@ -12,10 +10,10 @@ import { ColorDropdown } from './ColorDropdown'
 import { BookOpen } from '../assets/BookOpen'
 
 const links = [
-  { url: '/blog', label: 'Blog', image: blog },
-  { url: '/projects', label: 'Projects', image: projects },
-  { url: '/writing', label: 'Writing', image: blog },
-  { url: '/notes', label: 'Notes', image: blog },
+  { url: '/blog', label: 'Blog', icon: '🧑‍💻' },
+  { url: '/notes', label: 'Notes', icon: '📝' },
+  { url: '/projects', label: 'Projects', icon: '👾' },
+  { url: '/writing', label: 'Writing', icon: '✍️' },
 ]
 
 const socialLinks = [
@@ -98,7 +96,9 @@ export const Navigation = ({
                 activeClassName="active"
                 onClick={handleCloseMobileNav}
               >
-                <img src={link.image} alt={link.label} />
+                <span className="nav-emoji" aria-hidden="true">
+                  {link.icon}
+                </span>
                 {link.label}
               </Link>
             ))}

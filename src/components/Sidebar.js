@@ -1,16 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import blog from '../assets/nav-blog.png'
-import projects from '../assets/nav-projects.png'
 import { ColorDropdown } from './ColorDropdown'
 
 export const Sidebar = ({ currentColor, setCurrentColor }) => {
   const links = [
-    { url: '/blog', label: 'Blog', image: blog },
-    { url: '/projects', label: 'Projects', image: projects },
-    { url: '/writing', label: 'Writing', image: blog },
-    { url: '/notes', label: 'Notes', image: blog },
+    { url: '/blog', label: 'Blog', icon: '🧑‍💻' },
+    { url: '/notes', label: 'Notes', icon: '📝' },
+    { url: '/projects', label: 'Projects', icon: '👾' },
+    { url: '/writing', label: 'Writing', icon: '✍️' },
   ]
 
   return (
@@ -43,7 +41,9 @@ export const Sidebar = ({ currentColor, setCurrentColor }) => {
         <nav className="sidebar-nav-links">
           {links.map((link) => (
             <Link key={link.url} to={link.url} activeClassName="active">
-              <img src={link.image} alt={link.label} />
+              <span className="nav-emoji" aria-hidden="true">
+                {link.icon}
+              </span>
               {link.label}
             </Link>
           ))}

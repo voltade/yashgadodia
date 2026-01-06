@@ -4,31 +4,24 @@ import Helmet from 'react-helmet'
 
 import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
-import { Heading } from '../components/Heading'
 import { Hero } from '../components/Hero'
 import { PageLayout } from '../components/PageLayout'
-import { Posts } from '../components/Posts'
+import { Search } from '../components/Search'
+import blog from '../assets/nav-blog.png'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 
 export default function Writing({ data }) {
+  const posts = data.posts.edges
+  const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
   const title = 'Writing'
 
   const description = (
     <div>
-      Longer posts in <Link to="/blog">Blog</Link> and shorter notes in{' '}
-      <Link to="/notes">Writing</Link>.
+      Essays and longer-form writing. For product/AI posts, see{' '}
+      <Link to="/blog">Blog</Link>. For shorter notes and lists, see{' '}
+      <Link to="/notes">Notes</Link>.
     </div>
-  )
-
-  const articles = useMemo(
-    () => getSimplifiedPosts(data.latestArticles.edges),
-    [data.latestArticles.edges]
-  )
-
-  const notes = useMemo(
-    () => getSimplifiedPosts(data.latestNotes.edges),
-    [data.latestNotes.edges]
   )
 
   return (
@@ -37,29 +30,8 @@ export default function Writing({ data }) {
       <SEO customDescription={description} />
 
       <PageLayout>
-        <Hero title={title} description={description} />
-
-        <section className="section-index">
-          <Heading
-            title="Blog"
-            description="Longer posts on AI products, systems, and building."
-          />
-          <Posts data={articles} />
-          <p>
-            <Link to="/blog">View all blog posts →</Link>
-          </p>
-        </section>
-
-        <section className="section-index">
-          <Heading
-            title="Writing"
-            description="Shorter observations and work-in-progress thinking."
-          />
-          <Posts data={notes} />
-          <p>
-            <Link to="/notes">View all writing →</Link>
-          </p>
-        </section>
+        <Hero title={title} description={description} hasSearch image={blog} />
+        <Search data={simplifiedPosts} section="writing" />
       </PageLayout>
     </>
   )
@@ -69,13 +41,12 @@ Writing.Layout = Layout
 
 export const pageQuery = graphql`
   query WritingQuery {
-    latestArticles: allMarkdownRemark(
-      limit: 10
+    posts: allMarkdownRemark(
       sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: {
           template: { eq: "post" }
-          categories: { eq: "Technical" }
+          categories: { eq: "Writing" }
         }
       }
     ) {
@@ -88,33 +59,6 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            description
-            external_url
-          }
-        }
-      }
-    }
-    latestNotes: allMarkdownRemark(
-      limit: 10
-      sort: { frontmatter: { date: DESC } }
-      filter: {
-        frontmatter: {
-          template: { eq: "post" }
-          categories: { eq: "Personal" }
-        }
-      }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            external_url
           }
         }
       }

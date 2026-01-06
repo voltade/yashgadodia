@@ -14,9 +14,8 @@ import config from '../utils/config'
 export default function Notes({ data }) {
   const posts = data.posts.edges
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
-  const title = 'Writing'
-  const description =
-    'Poetry, essays, and personal notes-in-progress.'
+  const title = 'Notes'
+  const description = 'Short notes, lists, and work-in-progress ideas.'
 
   return (
     <>
