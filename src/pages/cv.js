@@ -17,6 +17,36 @@ export default function CV() {
   const ninjaVanInternshipWriteup =
     'https://medium.com/ninjavan-tech/my-ninja-van-internship-experience-39e6a4a33364'
   const accentHex = '#6f5cff'
+  const phoneNumber = '+65 8139 4225'
+
+  const copyPhoneNumber = async () => {
+    if (typeof navigator === 'undefined') return
+
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(phoneNumber)
+        return
+      }
+    } catch (e) {
+      // noop
+    }
+
+    if (typeof document === 'undefined') return
+
+    try {
+      const textarea = document.createElement('textarea')
+      textarea.value = phoneNumber
+      textarea.setAttribute('readonly', '')
+      textarea.style.position = 'absolute'
+      textarea.style.left = '-9999px'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+    } catch (e) {
+      // noop
+    }
+  }
 
   useEffect(() => {
     if (typeof document === 'undefined') return
@@ -72,7 +102,15 @@ export default function CV() {
                 <a href="mailto:pirsquare.yash@gmail.com">Email</a>
               </li>
               <li className="cv-contact-item">
-                <a href="tel:+6581394225">Phone</a>
+                <button
+                  type="button"
+                  className="cv-contact-link"
+                  onClick={copyPhoneNumber}
+                  aria-label={`Copy phone number ${phoneNumber}`}
+                  title={`Copy ${phoneNumber}`}
+                >
+                  Phone
+                </button>
               </li>
               <li className="cv-contact-item">
                 <a href="https://yashgadodia.com" target="_blank" rel="noreferrer">
