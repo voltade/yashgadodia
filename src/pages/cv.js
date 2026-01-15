@@ -367,24 +367,6 @@ export default function CV() {
                 </div>
               </section>
 
-              <section className="cv-section cv-print-hide">
-                <h2>Projects (Selected)</h2>
-                <ul>
-                  <li>
-                    <strong>Agentic Workflow Prototype</strong> — Tools across Git/SQL/Slack/HTTP with
-                    sandboxed execution; pass@k ≈ 86%, p95 latency 7.2 s, cost per task S$0.11; weekly eval
-                    cadence.
-                  </li>
-                  <li>
-                    <strong>RAG System</strong> — 2M+ documents; precision +22%, recall +18%; dashboards for
-                    latency, cost, and content quality.
-                  </li>
-                  <li>
-                    <strong>ChatOps Incident Automation</strong> — ~2K DAU; MTTA ↓ 32%; routing and
-                    escalation logic adopted across four departments.
-                  </li>
-                </ul>
-              </section>
             </div>
           </div>
         </div>
