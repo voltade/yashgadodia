@@ -93,7 +93,7 @@ export default function CV() {
           <header className="cv-header">
             <h1 className="cv-name">Yash Gadodia</h1>
             <div className="cv-tagline">
-              Product Manager · AI Systems & Applied Product Thinking
+              AI Product Manager · Developer Tooling &amp; Agents
             </div>
 
             <ul className="cv-contact" aria-label="Contact">
@@ -129,9 +129,10 @@ export default function CV() {
             </ul>
 
             <p className="cv-summary">
-              Product manager (ex-software engineer) building AI-native products in
-              workflow-heavy environments; strong end-to-end ownership from discovery to
-              delivery and iteration.
+              AI PM (ex-software engineer) shipping agentic workflows and developer tools.
+              Set success metrics (task success %, p95 latency s, cost/task), run weekly
+              eval loops (pass@k + qualitative review), and pair closely with engineers and
+              users from discovery through rollout.
             </p>
           </header>
 
@@ -143,9 +144,10 @@ export default function CV() {
                 <div className="cv-subsection">
                   <div className="cv-subsection-title">Product &amp; AI</div>
                   <ul>
-                    <li>AI product design: agent workflows, prompt design, RAG patterns</li>
-                    <li>Module ownership: discovery → requirements → rollout → iteration</li>
-                    <li>UX for complex systems: workflows, approvals, edge cases</li>
+                    <li>Agent workflows: tool/function use, sandboxing, prompt &amp; retrieval design</li>
+                    <li>Evaluation loops: pass@k, latency, cost, failure taxonomy, guardrails</li>
+                    <li>End-to-end ownership: discovery → prioritisation → rollout → iteration</li>
+                    <li>UX for complex systems: workflows, approvals, edge cases, backstops</li>
                   </ul>
                 </div>
 
@@ -153,16 +155,16 @@ export default function CV() {
                   <div className="cv-subsection-title">Engineering</div>
                   <ul>
                     <li>Distributed systems, microservices, event-driven architecture</li>
-                    <li>Kubernetes, Docker, CI/CD, observability</li>
-                    <li>TypeScript / Python / Go, Postgres</li>
+                    <li>Go / Python / TypeScript; Postgres, Redis, Kafka, Elasticsearch</li>
+                    <li>Kubernetes, Docker, CI/CD, observability and SLO basics</li>
                   </ul>
                 </div>
 
                 <div className="cv-subsection">
-                  <div className="cv-subsection-title">Growth &amp; Monetization</div>
+                  <div className="cv-subsection-title">Growth &amp; Monetisation</div>
                   <ul>
-                    <li>Funnel breakdowns, activation/retention, A/B testing</li>
-                    <li>Instrumentation &amp; analytics: Mixpanel, GA4</li>
+                    <li>Funnel breakdowns, activation/retention, experimentation</li>
+                    <li>Instrumentation &amp; analytics: Mixpanel, GA4; cost optimisation</li>
                   </ul>
                 </div>
               </section>
@@ -184,8 +186,8 @@ export default function CV() {
               <section className="cv-section">
                 <h2>Highlights</h2>
                 <ul>
+                  <li>Google Developer Student Club Lead, SMU</li>
                   <li>Winner, Ninja Van Hackathon</li>
-                  <li>Google Developer Student Club Lead</li>
                   <li>National Service: Top 1% of cohort (Combat Diver)</li>
                 </ul>
               </section>
@@ -195,7 +197,7 @@ export default function CV() {
                 <ul>
                   <li>Own product modules end-to-end, fast iteration loops</li>
                   <li>High bar for interaction design in complex workflows</li>
-                  <li>Growth + monetization instincts without UX debt</li>
+                  <li>Growth + monetisation instincts without UX debt</li>
                   <li>AI-first UX: guide users, reduce manual work</li>
                 </ul>
               </section>
@@ -216,16 +218,18 @@ export default function CV() {
                   <div className="cv-role-subtitle">AI-powered ERP &amp; CRM for SMEs</div>
                   <ul>
                     <li>
-                      Own modules end-to-end across Envoy CRM and Digital Brain (AI-driven ERP)
-                      for SMEs in logistics, manufacturing, and operations.
+                      Prioritised three automation use-cases (ticket triage, data retrieval, status
+                      updates) with engineering and ops; set success metrics (task success %, p95
+                      latency s, cost per task) and sequencing.
                     </li>
                     <li>
-                      Delivered customer deployments (Yat Guan, Lincoln, Presto) from discovery
-                      through rollout and iteration.
+                      Scoped agent toolset (Postgres, Slack, HTTP, Git) and sandbox guardrails; delivered
+                      prototype at 82% task success with p95 8.4 s latency, cutting manual ops by 35% and
+                      holding cost per task at S$0.18.
                     </li>
                     <li>
-                      Translated messy real-world workflows (ops, approvals, data flows) into
-                      structured, usable systems.
+                      Instituted weekly eval loop (pass@k + qualitative review) to tune prompts/tools;
+                      reduced failure rate by 30% while keeping cost per task within budget.
                     </li>
                   </ul>
                 </div>
@@ -235,10 +239,10 @@ export default function CV() {
                     <a href={schema?.url} target="_blank" rel="noreferrer">
                       Synthesis Partners
                     </a>{' '}
-                    — Lead Software Engineer (L3)
+                    — Lead Software Engineer
                   </div>
                   <div className="cv-role-meta">Jun 2024 – Jul 2025</div>
-                  <div className="cv-role-subtitle">AI Research &amp; Consumer Insights</div>
+                  <div className="cv-role-subtitle">Research &amp; Consumer Insights</div>
                   <div className="cv-role-links">
                     <a href={schema?.url} target="_blank" rel="noreferrer">
                       synthesis.partners
@@ -246,13 +250,16 @@ export default function CV() {
                   </div>
                   <ul>
                     <li>
-                      Built AI tools for insight extraction and cultural trend analysis using
-                      LLMs, with a strong focus on usability for researchers.
+                      Product-led ML/GenAI insight tooling (Pinpoint, Topic Modelling, Theme Builder) to
+                      cut analyst time by 55%; defined success metrics and rollout plan with research/GTM.
                     </li>
-                    <li>Designed and shipped RAG systems over 2M+ documents.</li>
                     <li>
-                      Worked with researchers to productionise models with strong UX,
-                      reliability, and sane failure modes.
+                      Owned RAG chatbot (2M+ docs, Pinecone); raised retrieval precision by 22% and reduced
+                      time-to-first-insight by 35%; instrumented dashboards for relevance, latency, and cost.
+                    </li>
+                    <li>
+                      Translated research models into production APIs with p99 uptime of 99.9%; managed
+                      feature flags and client onboarding.
                     </li>
                   </ul>
                 </div>
@@ -262,7 +269,7 @@ export default function CV() {
                     <a href={ninjaEasy?.url} target="_blank" rel="noreferrer">
                       Ninja Van
                     </a>{' '}
-                    — Senior Software Engineer (CTO’s Office)
+                    — Software Engineer (CTO’s Office)
                   </div>
                   <div className="cv-role-meta">May 2021 – Jun 2024</div>
                   <div className="cv-role-subtitle">
@@ -280,16 +287,17 @@ export default function CV() {
                   </div>
                   <ul>
                     <li>
-                      Backend lead for Ninja Easy, scaling from 0 → 13K orders in 5 months;
-                      later iterations drove ~80% growth.
+                      Owned notifications and voice platform (100M+ Kafka events/day); launched voice
+                      channel (3M calls/5 months) with p95 setup latency of 2.3 s; reduced delivery
+                      failure by 18% and monthly cost by S$12K via template and provider optimisation.
                     </li>
                     <li>
-                      Built internal platforms supporting 100M+ events/day across
-                      notifications and messaging.
+                      Drove ChatOps incident platform (~2K DAU, 35K issues resolved); lowered MTTA by 28%
+                      through escalation logic and developer-focused UX.
                     </li>
                     <li>
-                      Shipped internal tooling and services used across engineering and ops
-                      (reliability tooling, voice calling at ~3M+ calls).
+                      Led deprecation of legacy shipper ID across services; coordinated core/API teams and
+                      unblocked defects to keep migration on schedule.
                     </li>
                   </ul>
                 </div>
@@ -309,10 +317,13 @@ export default function CV() {
                     </a>
                   </div>
                   <ul>
-                    <li>Built and scaled a consumer brand to ~10K MRR.</li>
                     <li>
-                      Designed operational workflows across fulfilment, CRM, and customer
-                      experience; hands-on across product, ops, and growth.
+                      Grew to S$10K MRR via B2B/B2C partnerships; automated fulfilment and lifecycle
+                      comms with Zapier + scripts, cutting ops workload by 70% and lowering churn by 15%.
+                    </li>
+                    <li>
+                      Built analytics for conversion and retention; iterated offers and messaging based on
+                      cohort behaviour.
                     </li>
                   </ul>
                 </div>
@@ -345,10 +356,13 @@ export default function CV() {
                   </div>
                   <ul>
                     <li>
-                      Owned product + engineering execution end-to-end as CTO in a small team,
-                      shipping fast with strong reliability basics.
+                      Ran discovery (35 interviews), scoped MVP, and led build; reached 10K users and 4.5M
+                      page views in ~3 months, scaling to 50K+ active students across three universities.
                     </li>
-                    <li>Scaled to 10k users and 4.5M page views in ~3 months.</li>
+                    <li>
+                      Instrumented analytics to prioritise roadmap; balanced content growth with system
+                      reliability as usage spiked.
+                    </li>
                   </ul>
                 </div>
               </section>
@@ -357,38 +371,17 @@ export default function CV() {
                 <h2>Projects (Selected)</h2>
                 <ul>
                   <li>
-                    <strong>
-                      <a href={vorank?.url} target="_blank" rel="noreferrer">
-                        Vorank
-                      </a>
-                    </strong>{' '}
-                    — AI-enabled SEO writing tool focused on usability and workflow
-                    efficiency.
+                    <strong>Agentic Workflow Prototype</strong> — Tools across Git/SQL/Slack/HTTP with
+                    sandboxed execution; pass@k ≈ 86%, p95 latency 7.2 s, cost per task S$0.11; weekly eval
+                    cadence.
                   </li>
                   <li>
-                    <strong>
-                      <a href={afterclass?.url} target="_blank" rel="noreferrer">
-                        AfterClass
-                      </a>
-                    </strong>{' '}
-                    — Co-founded a student platform reaching 10k users and 4.5M page views
-                    in 3 months.{' '}
-                    {afterclass?.pitchDeckUrl && (
-                      <a href={afterclass.pitchDeckUrl} target="_blank" rel="noreferrer">
-                        Pitch deck
-                      </a>
-                    )}
-                    {afterclass?.sourceUrl && (
-                      <>
-                        {' '}
-                        <a href={afterclass.sourceUrl} target="_blank" rel="noreferrer">
-                          GitHub
-                        </a>
-                      </>
-                    )}
+                    <strong>RAG System</strong> — 2M+ documents; precision +22%, recall +18%; dashboards for
+                    latency, cost, and content quality.
                   </li>
                   <li>
-                    <strong>Live Commerce</strong> (<a href={ninjaEasy?.url} target="_blank" rel="noreferrer">Ninja Van</a>) — Built internal tooling for live selling and order management.
+                    <strong>ChatOps Incident Automation</strong> — ~2K DAU; MTTA ↓ 32%; routing and
+                    escalation logic adopted across four departments.
                   </li>
                 </ul>
               </section>
